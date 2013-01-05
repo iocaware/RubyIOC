@@ -12,22 +12,18 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class FileDownloadHistoryItem < RubyIOC::IOCItem::IOC
+		class IOC
 			def get_type
-				"FileDownloadHistoryItem"
+				nil
+			end
+
+			def write(ioc)
+				raise "Not implemented"
+			end
+			
+			def scan(ioc)
+				raise "Not implemented"
 			end
 		end
-
-		class FileDownloadHistoryItemFactory < RubyIOC::IOCItem::IOCItemFactory
-			def get_type
-				"FileDownloadHistoryItem"
-			end
-
-			def create
-				FileDownloadHistoryItem.new
-			end
-		end
-
-		FileDownloadHistoryItemFactory.add_factory(FileDownloadHistoryItemFactory)
 	end
 end
