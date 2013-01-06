@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class PortItem < RubyIOC::IOCItem::IOC
+		class PortItem < RubyIOC::IOCTerm
 			def get_type
 				"PortItem"
 			end

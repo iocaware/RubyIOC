@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class DnsEntryItem < RubyIOC::IOCItem::IOC
+		class DnsEntryItem < RubyIOC::IOCTerm
 			def get_type
 				"DnsEntryItem"
 			end

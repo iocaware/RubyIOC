@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class SystemRestoreItem < RubyIOC::IOCItem::IOC
+		class SystemRestoreItem < RubyIOC::IOCTerm
 			def get_type
 				"SystemRestoreItem"
 			end

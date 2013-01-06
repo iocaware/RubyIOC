@@ -10,10 +10,21 @@
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
+require "rexml/document"
+
 require "RubyIOC/version"
 require "RubyIOC/platform"
+require "RubyIOC/iocterm"
 require "RubyIOC/iocitem"
+require "RubyIOC/ioc"
+require "RubyIOC/scanner"
 
-module RubyIOC
+=begin rdoc
+	RubyIOC is a simple gem that will allow the scanning of a system with indicators of compromise. RubyIOC will not tell you if the machine
+	is compromised or not but it will give you a score and what indicators have been found. Ideally you will want to see 0% and 0 found indicators.
+	However you may come back with 1% ond 2 indicators out of 200. It will also provide you a reference to the found indicators. From here you
+	can investigate whatever machine you wish to investigate. 
 
-end
+	Please note that when you use this software you are running on possibly compromised machiens, any credentials you use to facilitate the scan 
+	should be considered compromised
+=end

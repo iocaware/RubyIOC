@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class UrlHistoryItem < RubyIOC::IOCItem::IOC
+		class UrlHistoryItem < RubyIOC::IOCTerm
 			def get_type
 				"UrlHistoryItem"
 			end

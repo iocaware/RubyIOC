@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class TaskItem < RubyIOC::IOCItem::IOC
+		class TaskItem < RubyIOC::IOCTerm
 			def get_type
 				"TaskItem"
 			end

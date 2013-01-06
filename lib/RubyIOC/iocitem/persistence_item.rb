@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class PersistenceItem < RubyIOC::IOCItem::IOC
+		class PersistenceItem < RubyIOC::IOCTerm
 			def get_type
 				"PersistenceItem"
 			end

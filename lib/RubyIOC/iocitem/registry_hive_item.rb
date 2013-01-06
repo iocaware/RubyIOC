@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class RegistryHiveItem < RubyIOC::IOCItem::IOC
+		class RegistryHiveItem < RubyIOC::IOCTerm
 			def get_type
 				"RegistryHiveItem"
 			end

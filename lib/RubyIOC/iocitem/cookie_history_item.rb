@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class CookieHistoryItem < RubyIOC::IOCItem::IOC
+		class CookieHistoryItem < RubyIOC::IOCTerm
 			def get_type
 				"CookieHistoryItem"
 			end

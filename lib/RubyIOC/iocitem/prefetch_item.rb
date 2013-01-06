@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class PrefetchItem < RubyIOC::IOCItem::IOC
+		class PrefetchItem < RubyIOC::IOCTerm
 			def get_type
 				"PrefetchItem"
 			end

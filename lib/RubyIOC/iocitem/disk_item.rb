@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class DiskItem < RubyIOC::IOCItem::IOC
+		class DiskItem < RubyIOC::IOCTerm
 			def get_type
 				"DiskItem"
 			end

@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class DriverItem < RubyIOC::IOCItem::IOC
+		class DriverItem < RubyIOC::IOCTerm
 			def get_type
 				"DriverItem"
 			end

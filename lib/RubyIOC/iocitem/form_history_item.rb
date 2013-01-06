@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class FormHistoryItem < RubyIOC::IOCItem::IOC
+		class FormHistoryItem < RubyIOC::IOCTerm
 			def get_type
 				"FormHistoryItem"
 			end

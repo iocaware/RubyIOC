@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class RouteEntryItem < RubyIOC::IOCItem::IOC
+		class RouteEntryItem < RubyIOC::IOCTerm
 			def get_type
 				"RouteEntryItem"
 			end

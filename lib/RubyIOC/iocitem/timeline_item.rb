@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class TimelineItem < RubyIOC::IOCItem::IOC
+		class TimelineItem < RubyIOC::IOCTerm
 			def get_type
 				"TimelineItem"
 			end

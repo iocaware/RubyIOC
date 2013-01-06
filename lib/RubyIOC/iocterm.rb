@@ -11,23 +11,14 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 module RubyIOC
-	module IOCItem
-		class HashItem < RubyIOC::IOCTerm
+		class IOCTerm
 			def get_type
-				"HashItem"
+				nil
+			end
+			
+			def scan(search, condition, content_type, content, context_type)
+				puts "Sorry #{get_type} has not been implemented yet"
+				puts "Searching for #{content} in #{search} with condition #{condition}"
 			end
 		end
-
-		class HashItemFactory < RubyIOC::IOCItem::IOCItemFactory
-			def get_type
-				"HashItem"
-			end
-
-			def create
-				HashItem.new
-			end
-		end
-
-		HashItemFactory.add_factory(HashItemFactory)
-	end
 end

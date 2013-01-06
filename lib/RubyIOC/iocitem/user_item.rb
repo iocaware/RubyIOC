@@ -12,9 +12,30 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class UserItem < RubyIOC::IOCItem::IOC
+		class UserItem < RubyIOC::IOCTerm
 			def get_type
 				"UserItem"
+			end
+
+			def scan(search, condition, content_type, content, context_type)
+				case search
+				when "UserItem/Username"
+					return search_by_username(content, condition)
+				else
+					puts "Searching for #{search} is not impelemented"
+				end
+			end
+
+
+			def search_by_username(content, condition)
+				if RubyIOC::Platform.windows?
+					puts "This is windows"
+				elsif RubyIOC::Platform.linux?
+					puts "This has not been implmented properly yet"
+				elsif RubyIOC::Platform.mac?
+					puts "This has not been implmented properly yet"
+				end
+				return true
 			end
 		end
 

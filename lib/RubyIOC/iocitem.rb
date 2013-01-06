@@ -54,20 +54,6 @@ module RubyIOC
 				}
 			end
 		end
-
-		class IOC
-			def get_type
-				nil
-			end
-
-			def write(ioc)
-				nil
-			end
-			
-			def scan(ioc)
-				nil
-			end
-		end
 	end
 end
 RubyIOC::IOCItem::IOCItemFactory.load

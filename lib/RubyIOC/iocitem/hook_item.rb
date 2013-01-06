@@ -12,7 +12,7 @@
 # IN THE SOFTWARE.
 module RubyIOC
 	module IOCItem
-		class HookItem < RubyIOC::IOCItem::IOC
+		class HookItem < RubyIOC::IOCTerm
 			def get_type
 				"HookItem"
 			end
