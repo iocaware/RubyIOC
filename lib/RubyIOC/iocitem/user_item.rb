@@ -10,6 +10,9 @@
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
+if RubyIOC::Platform.windows?
+	require "win32ole"
+end
 module RubyIOC
 	module IOCItem
 		class UserItem < RubyIOC::IOCTerm
@@ -21,21 +24,51 @@ module RubyIOC
 				case search
 				when "UserItem/Username"
 					return search_by_username(content, condition)
+				when "UserItem/fullname"
+					return search_by_fullname(content, condition)
+				when "UserItem/description"
+					return search_by_description(content, condition)
 				else
 					puts "Searching for #{search} is not impelemented"
 				end
 			end
 
+			def get_users
+				users = nil
+				if RubyIOC::Platform.windows?
+					wmi = WIN32OLE.connect("winmgmts://")
+					users = wmi.ExecQuery("Select * from Win32_UserAccount Where LocalAccount = True")
+				else
+					puts "Platform has not been implemented yet"
+				end
+				return users
+			end
 
 			def search_by_username(content, condition)
-				if RubyIOC::Platform.windows?
-					puts "This is windows"
-				elsif RubyIOC::Platform.linux?
-					puts "This has not been implmented properly yet"
-				elsif RubyIOC::Platform.mac?
-					puts "This has not been implmented properly yet"
-				end
-				return true
+				users = get_users
+				usernames = []
+				users.each { |u | 
+					usernames << u.Name
+				}
+				return usernames.include?(content)
+			end
+
+			def search_by_fullname(content, condition)
+				users = get_users
+				fullnames = []
+				users.each { |u|
+					fullnames << u.FullName
+				}
+				return fullnames.include?(content)
+			end
+
+			def search_by_description(content, condition)
+				users = get_users
+				descriptions = []
+				users.each { |u| 
+					descriptions << u.Description
+				}
+				return descriptions.include?(content)
 			end
 		end
 
