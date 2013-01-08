@@ -5,58 +5,24 @@
   <links />
   <definition>
     <Indicator operator="OR" id="336a594b-3302-4ac8-9512-4f329d660515">
-      <IndicatorItem id="da016ceb-e96c-4006-b5ee-f683e9392b90" condition="contains">
-        <Context document="UserItem" search="UserItem/description" type="mir" />
-        <Content type="string">Stupid User</Content>
-      </IndicatorItem>
-      <IndicatorItem id="ff27c0d0-08db-4223-afa1-cc6269fb2b25" condition="contains">
-        <Context document="UserItem" search="UserItem/disabled" type="mir" />
-        <Content type="string">true</Content>
-      </IndicatorItem>
+      <Indicator operator="AND" id="336a594b-3302-4ac8-9512-4f329d660515">
+        <IndicatorItem id="1d1ca6f3-6bf9-4c8a-812e-3e9879f5ad29" condition="contains">
+          <Context document="UserItem" search="UserItem/username" type="mir" />
+          <Content type="string">Guest</Content>
+        </IndicatorItem>
+        <IndicatorItem id="1d1ca6f3-6bf9-4c8a-812e-3e9879f5ad29" condition="contains">
+         <Context document="UserItem" search="UserItem/fullname" type="mir" />
+          <Content type="string"></Content>
+        </IndicatorItem>
+        <IndicatorItem id="ff27c0d0-08db-4223-afa1-cc6269fb2b25" condition="contains">
+          <Context document="UserItem" search="UserItem/disabled" type="mir" />
+          <Content type="string">true</Content>
+        </IndicatorItem>
+      </Indicator>
       <IndicatorItem id="1d1ca6f3-6bf9-4c8a-812e-3e9879f5ad29" condition="contains">
-        <Context document="UserItem" search="UserItem/fullname" type="mir" />
-        <Content type="string">UpdatusUser</Content>
-      </IndicatorItem>
-      <IndicatorItem id="c7c2bcce-e4b6-44df-abf2-a7ea0ab5ac14" condition="contains">
-        <Context document="UserItem" search="UserItem/grouplist/groupname" type="mir" />
-        <Content type="string">Managers</Content>
-      </IndicatorItem>
-      <IndicatorItem id="83fa2299-db82-4d7b-b39e-b1ceda5b6f27" condition="contains">
-        <Context document="UserItem" search="UserItem/homedirectory" type="mir" />
-        <Content type="string">C:\</Content>
-      </IndicatorItem>
-      <IndicatorItem id="4668febc-977f-4f7d-9def-f3efd73dba6a" condition="is">
-        <Context document="UserItem" search="UserItem/LastLogin" type="mir" />
-        <Content type="date">today</Content>
-      </IndicatorItem>
-      <IndicatorItem id="4fdacbeb-f925-47ec-9586-343c5146b495" condition="contains">
-        <Context document="UserItem" search="UserItem/lockedout" type="mir" />
-        <Content type="string">true</Content>
-      </IndicatorItem>
-      <IndicatorItem id="7a47056b-a0d3-4041-8e9f-7e43651d8c7e" condition="contains">
-        <Context document="UserItem" search="UserItem/Username" type="mir" />
-        <Content type="string">Administrator</Content>
-      </IndicatorItem>
-      <IndicatorItem id="a9d6814e-c076-4c70-b2fa-de101e44690e" condition="contains">
-        <Context document="UserItem" search="UserItem/userpasswordage" type="mir" />
-        <Content type="string">3 days</Content>
-      </IndicatorItem>
-      <IndicatorItem id="01e026d3-7870-4d3d-acc4-3729bbe65cd7" condition="contains">
-        <Context document="UserItem" search="UserItem/passwordrequired" type="mir" />
-        <Content type="string">true</Content>
-      </IndicatorItem>
-      <IndicatorItem id="2b86af38-33ed-41a7-ac32-8d284c68f745" condition="contains">
-        <Context document="UserItem" search="UserItem/scriptpath" type="mir" />
-        <Content type="string">C:\adsf</Content>
-      </IndicatorItem>
-      <IndicatorItem id="0064c75c-be4c-4a9e-a933-f2b3485e2f61" condition="contains">
-        <Context document="UserItem" search="UserItem/SecurityID" type="mir" />
-        <Content type="string">asdfsecurityid</Content>
-      </IndicatorItem>
-      <IndicatorItem id="127d6a9a-e7a4-4f01-9846-bb1c54f1cc59" condition="contains">
-        <Context document="UserItem" search="UserItem/SecurityType" type="mir" />
-        <Content type="string">User</Content>
-      </IndicatorItem>
+          <Context document="UserItem" search="UserItem/username" type="mir" />
+          <Content type="string">Guest</Content>
+        </IndicatorItem>
     </Indicator>
   </definition>
 </ioc>

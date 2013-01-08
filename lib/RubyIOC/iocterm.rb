@@ -16,9 +16,7 @@ module RubyIOC
 				nil
 			end
 			
-			def scan(search, condition, content_type, content, context_type)
-				puts "Sorry #{get_type} has not been implemented yet"
-				puts "Searching for #{content} in #{search} with condition #{condition}"
+			def scan(indicator = {})
 			end
 		end
 end

@@ -10,6 +10,7 @@
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
+require "yaml"
 if RubyIOC::Platform.windows?
 	require "win32ole"
 end
@@ -20,55 +21,36 @@ module RubyIOC
 				"UserItem"
 			end
 
-			def scan(search, condition, content_type, content, context_type)
-				case search
-				when "UserItem/Username"
-					return search_by_username(content, condition)
-				when "UserItem/fullname"
-					return search_by_fullname(content, condition)
-				when "UserItem/description"
-					return search_by_description(content, condition)
-				else
-					puts "Searching for #{search} is not impelemented"
-				end
-			end
-
-			def get_users
-				users = nil
+			def scan(indicator)
 				if RubyIOC::Platform.windows?
-					wmi = WIN32OLE.connect("winmgmts://")
-					users = wmi.ExecQuery("Select * from Win32_UserAccount Where LocalAccount = True")
+					return search_windows_users(indicator)
 				else
-					puts "Platform has not been implemented yet"
+					puts "Not implemented on this platform yet"
 				end
-				return users
 			end
 
-			def search_by_username(content, condition)
-				users = get_users
-				usernames = []
-				users.each { |u | 
-					usernames << u.Name
+			def search_windows_users(indicator)
+				wmi = WIN32OLE.connect("winmgmts://")
+				query = "Select * from Win32_UserAccount Where LocalAccount = True and "
+				attributes = []
+				indicator.each { |i| 
+					case i[:search]
+					when "UserItem/username"
+						attributes << "Name = \"#{i[:content]}\""
+					when "UserItem/fullname"
+						attributes << "FullName = \"#{i[:content]}\""
+					when "UserItem/disabled"
+						attributes << "Disabled = #{i[:content].to_bool}"
+					end
 				}
-				return usernames.include?(content)
-			end
+				query = query + attributes.join(" and ")
+				puts query
+				users = wmi.ExecQuery(query)
+				users.each { | u | 
+					return true
+				}
 
-			def search_by_fullname(content, condition)
-				users = get_users
-				fullnames = []
-				users.each { |u|
-					fullnames << u.FullName
-				}
-				return fullnames.include?(content)
-			end
-
-			def search_by_description(content, condition)
-				users = get_users
-				descriptions = []
-				users.each { |u| 
-					descriptions << u.Description
-				}
-				return descriptions.include?(content)
+				return false
 			end
 		end
 

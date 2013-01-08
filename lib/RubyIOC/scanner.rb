@@ -23,10 +23,10 @@ module RubyIOC
 		def scan
 			results = []
 			indicators = []
-
 			@ioc.indicators.each { |i| 
-				process_indicators(i, results)
+				results << process_indicators(i, results)
 			}
+			puts results.to_yaml
 		end
 
 		def get_all_results(items, results)
@@ -68,16 +68,37 @@ module RubyIOC
 
 		def process_indicators(i, results)
 			res = {}
+			search_item = []
 			res[i.id] = {}
 			res[i.id]['items'] = []
 			res[i.id]['operator'] = i.operator
 			res[i.id]['indicators'] = []
-			i.indicator_item.each { | inditem |
-				# HERE IS WHERE WE PROCESS THE INDICATOR ITEMS
-				# def scan(search, condition, content_type, content, context_type)
-				puts RubyIOC::IOCItem::IOCItemFactory.item_for(inditem.document).scan(inditem.search, inditem.condition, inditem.content_type, inditem.content, inditem.context_type)
-				res[i.id]['indicators'] << [true, false].sample
-			}
+			if i.operator === "AND"
+				i.indicator_item.each { | inditem |
+					tmp = {}
+					tmp[:document] = inditem.document
+					tmp[:search] = inditem.search
+					tmp[:condition] = inditem.condition
+					tmp[:content_type] = inditem.content_type
+					tmp[:content] = inditem.content
+					tmp[:context_type] = inditem.context_type
+					search_item << tmp
+				}
+				res[i.id]['indicators'] << RubyIOC::IOCItem::IOCItemFactory.item_for(search_item[0][:document]).scan(search_item)
+				puts res[i.id]['indicators'].inspect
+			else 
+				i.indicator_item.each { | inditem |
+					tmp = {}
+					tmp[:document] = inditem.document
+					tmp[:search] = inditem.search
+					tmp[:condition] = inditem.condition
+					tmp[:content_type] = inditem.content_type
+					tmp[:content] = inditem.content
+					tmp[:context_type] = inditem.context_type
+					search_item << tmp
+					res[i.id]['indicators'] << RubyIOC::IOCItem::IOCItemFactory.item_for(inditem.document).scan(search_item)
+				}
+			end
 			i.indicators.each { |ii |
 				process_indicators(ii, res[i.id]['items'])
 			}
