@@ -58,7 +58,6 @@ module RubyIOC
 					end
 				}
 				query = query + attributes.join(" and ")
-				puts query
 				users = wmi.ExecQuery(query)
 				users.each { | u | 
 					return true

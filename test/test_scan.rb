@@ -3,10 +3,14 @@ require "RubyIOC"
 
 class TestScan < Test::Unit::TestCase
 	def test_scan
-		find_windows_ioc = File.expand_path(File.dirname(__FILE__)) + "/find_windows.ioc"
-		test_user_item = File.expand_path(File.dirname(__FILE__)) + "/test_user_item.ioc"
+	#	find_windows_ioc = File.expand_path(File.dirname(__FILE__)) + "/find_windows.ioc"
+	#	test_user_item = File.expand_path(File.dirname(__FILE__)) + "/test_user_item.ioc"
 		#RubyIOC::Scanner.new(File.read(test_user_item)).scan
-		puts RubyIOC::Scanner.new(File.read(test_user_item)).scan
+	#	puts RubyIOC::Scanner.new(File.read(test_user_item)).scan
 	end
 
+	def test_dns_scan
+		dns_test_ioc =  File.expand_path(File.dirname(__FILE__)) + "/test_dns_entry_item.ioc"
+		RubyIOC::Scanner.new(File.read(dns_test_ioc)).scan
+	end
 end

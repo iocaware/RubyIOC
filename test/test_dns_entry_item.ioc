@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="efce87c7-f78f-4e32-8f3f-b470d1ec693f" last-modified="2013-01-07T01:29:04" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>*New Unsaved Indicator*</short_description>
+  <authored_date>2013-01-07T01:25:50</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="336a594b-3302-4ac8-9512-4f329d660515">
+      <IndicatorItem id="1d1ca6f3-6bf9-4c8a-812e-3e9879f5ad29" condition="contains">
+          <Context document="DnsEntryItem" search="DnsEntryItem/Host" type="mir" />
+          <Content type="string">www.google.com</Content>
+        </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>

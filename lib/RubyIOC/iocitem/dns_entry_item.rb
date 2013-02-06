@@ -16,6 +16,39 @@ module RubyIOC
 			def get_type
 				"DnsEntryItem"
 			end
+
+			def scan(indicator)
+				if RubyIOC::Platform.windows?
+					return search_windows_dns(indicator)
+				else
+					puts "Not implemented on this platform yet"
+				end
+			end
+
+			def search_windows_dns(indicator)
+				dns = get_windows_dns_cache
+				puts dns.to_yaml
+				return false
+			end
+
+			def get_windows_dns_cache
+				dns = []
+				dns_cache =`ipconfig /displaydns`
+				blocks = dns_cache.split(/\n\n/)
+				blocks.each do | block |
+					#puts block
+					temp = {}
+					temp[:record_name] = block.match(/\s*Record Name.*:\s(?<record>.*)/).to_a[1]
+					temp[:record_type] = block.match(/\s*Record Type.*:\s(?<record>.*)/).to_a[1]
+					temp[:time_to_live] = block.match(/\s*Time To Live.*:\s(?<record>.*)/).to_a[1]
+					temp[:data_length] = block.match(/\s*Data Length.*:\s(?<record>.*)/).to_a[1]
+					temp[:section] = block.match(/\s*Section.*:\s(?<record>.*)/).to_a[1]
+					temp[:a_record] = block.match(/\s*A \(Host\) Record.*:\s(?<record>.*)/).to_a[1]
+					temp[:cname] = block.match(/\s*CNAME Record.*:\s(?<record>.*)/).to_a[1]
+					dns << temp
+				end
+				return dns
+			end
 		end
 
 		class DnsEntryItemFactory < RubyIOC::IOCItem::IOCItemFactory
