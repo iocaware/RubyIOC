@@ -39,8 +39,22 @@ module RubyIOC
 						attributes << "Name = \"#{i[:content]}\""
 					when "UserItem/fullname"
 						attributes << "FullName = \"#{i[:content]}\""
+					when "UserItem/description"
+						attributes << "Description = \"#{i[:content]}\""
+					when "UserItem/grouplist"
+					when "UserItem/SecurityID"
+						attributes << "SID = \"#{i[:content]}\""
+					when "UserItem/SecurityType"
+						attributes << "SIDType = \"#{i[:content]}\""
+					when "UserItem/LastLogin"
 					when "UserItem/disabled"
 						attributes << "Disabled = #{i[:content].to_bool}"
+					when "UserItem/lockedout"
+						attributes << "Lockout = #{i[:content].to_bool}"
+					when "UserItem/passwordrequired"
+					when "UserItem/userpasswordage"
+					when "UserItem/homedirectory"
+					when "UserItem/scriptpath"
 					end
 				}
 				query = query + attributes.join(" and ")
@@ -49,7 +63,6 @@ module RubyIOC
 				users.each { | u | 
 					return true
 				}
-
 				return false
 			end
 		end
