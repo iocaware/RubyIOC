@@ -41,7 +41,7 @@ module RubyIOC
 		end
 
 		def windows?
-			RubyIOC::Platform.is? /mswin|win|mingw/			
+			RubyIOC::Platform.is? /mswin|mingw/			
 		end
 
 		def solaris?
