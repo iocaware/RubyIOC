@@ -33,15 +33,7 @@ module RubyIOC
 						content = i[:content]
 
 						case i[:search]
-						when "ArpEntryItem/PhysicalAddress"
-							if !(line.downcase.include? "interface") && (line.downcase.gsub("-", ":").include? content.downcase)
-								return true
-							end
-						when "ArpEntryItem/CacheType"
-							if !(line.downcase.include? "interface") && (line.downcase.gsub("-", ":").include? content.downcase)
-								return true
-							end
-						when"ArpEntryItem/IPv4Address"
+						when "ArpEntryItem/PhysicalAddress", "ArpEntryItem/CacheType", "ArpEntryItem/IPv4Address"
 							if !(line.downcase.include? "interface") && (line.downcase.gsub("-", ":").include? content.downcase)
 								return true
 							end
