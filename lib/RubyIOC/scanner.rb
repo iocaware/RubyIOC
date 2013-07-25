@@ -68,37 +68,23 @@ module RubyIOC
 
 		def process_indicators(i, results)
 			res = {}
-			search_item = []
 			res[i.id] = {}
 			res[i.id]['items'] = []
 			res[i.id]['operator'] = i.operator
 			res[i.id]['indicators'] = []
-			if i.operator === "AND"
-				i.indicator_item.each { | inditem |
-					tmp = {}
-					tmp[:document] = inditem.document
-					tmp[:search] = inditem.search
-					tmp[:condition] = inditem.condition
-					tmp[:content_type] = inditem.content_type
-					tmp[:content] = inditem.content
-					tmp[:context_type] = inditem.context_type
-					search_item << tmp
-				}
-				res[i.id]['indicators'] << RubyIOC::IOCItem::IOCItemFactory.item_for(search_item[0][:document]).scan(search_item)
-				puts res[i.id]['indicators'].inspect
-			else 
-				i.indicator_item.each { | inditem |
-					tmp = {}
-					tmp[:document] = inditem.document
-					tmp[:search] = inditem.search
-					tmp[:condition] = inditem.condition
-					tmp[:content_type] = inditem.content_type
-					tmp[:content] = inditem.content
-					tmp[:context_type] = inditem.context_type
-					search_item << tmp
-					res[i.id]['indicators'] << RubyIOC::IOCItem::IOCItemFactory.item_for(inditem.document).scan(search_item)
-				}
-			end
+			i.indicator_item.each { | inditem |
+				search_item = []
+				tmp = {}
+				tmp[:document] = inditem.document
+				tmp[:search] = inditem.search
+				tmp[:condition] = inditem.condition
+				tmp[:content_type] = inditem.content_type
+				tmp[:content] = inditem.content
+				tmp[:context_type] = inditem.context_type
+				search_item << tmp
+				res[i.id]['indicators'] << RubyIOC::IOCItem::IOCItemFactory.item_for(inditem.document).scan(search_item)
+			}
+
 			i.indicators.each { |ii |
 				process_indicators(ii, res[i.id]['items'])
 			}

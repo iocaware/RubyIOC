@@ -4,14 +4,14 @@
   <authored_date>2013-06-17T18:00:55</authored_date>
   <links />
   <definition>
-    <Indicator operator="AND" id="063979a1-df60-48c8-b514-5d226f192322">
-      <IndicatorItem id="935dbf4b-7e57-4b05-90e1-be9b0e388047" condition="contains">
-        <Context document="ArpEntryItem" search="ArpEntryItem/CacheType" type="mir" />
-        <Content type="string">Dynamic</Content>
-      </IndicatorItem>
+    <Indicator operator="OR" id="063979a1-df60-48c8-b514-5d226f192322">
       <IndicatorItem id="1844b310-86ec-4001-9b2e-144e27f83fae" condition="contains">
         <Context document="ArpEntryItem" search="ArpEntryItem/Interface" type="mir" />
         <Content type="IP">0xf</Content>
+      </IndicatorItem>	
+	<IndicatorItem id="935dbf4b-7e57-4b05-90e1-be9b0e388047" condition="contains">
+        <Context document="ArpEntryItem" search="ArpEntryItem/CacheType" type="mir" />
+        <Content type="string">Dynamic</Content>
       </IndicatorItem>
       <IndicatorItem id="f75124fd-cc93-419f-90e6-f243e2608e12" condition="contains">
         <Context document="ArpEntryItem" search="ArpEntryItem/IPv4Address" type="mir" />
