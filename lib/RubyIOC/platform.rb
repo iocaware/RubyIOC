@@ -33,7 +33,7 @@ module RubyIOC
 		end
 
 		def mac?
-			RubyIOC::Platform.is? /mac|darwin/
+			RubyIOC::Platform.is? /darwin|mac/
 		end
 
 		def bsd?

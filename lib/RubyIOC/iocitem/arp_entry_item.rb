@@ -52,19 +52,38 @@ module RubyIOC
 			end
 			
 			def search_mac_arp(indicator)
-				arp = get_cache
-				return false
+				arp = get_arp_cache
 				arp.each_line do |line|
+					fields = line.split(' ')
+					ip = fields[1].gsub('(', '').gsub(')', '')
+					physical = fields[3].downcase
+					iface = fields[5].downcase
+
 					indicator.each { |i|
-						content = i[:content]
+						content = i[:content].downcase
 
 						case i[:search]
-						when "ArpEntryItem/PhysicalAddress", "ArpEntryItem/CacheType", "ArpEntryItem/IPv4Address"
-							if !(line.downcase.include? "interface") && (line.downcase.gsub("-", ":").include? content.downcase)
+						when "ArpEntryItem/PhysicalAddress"
+							octets = physical.split(':')
+							i = 0
+							while i < octets.length do
+								if octets[i].length == 1 then
+									octets[i] = '0' + octets[i]
+								end
+								i += 1
+							end
+							physical = octets.join(':')
+
+							if physical == content then
+								return true
+							end
+						when "ArpEntryItem/CacheType"
+						when "ArpEntryItem/IPv4Address"
+							if ip == content then
 								return true
 							end
 						when "ArpEntryItem/Interface"
-							if (line.downcase.include? "interface") && (line.downcase.include? content.downcase)
+							if iface == content then
 								return true
 							end
 						end
