@@ -9,8 +9,13 @@ class TestScan < Test::Unit::TestCase
 	#	puts RubyIOC::Scanner.new(File.read(test_user_item)).scan
 	end
 
-	def test_dns_scan
-		dns_test_ioc =  File.expand_path(File.dirname(__FILE__)) + "/test_dns_entry_item.ioc"
-		RubyIOC::Scanner.new(File.read(dns_test_ioc)).scan
+	#def test_dns_scan
+	#	dns_test_ioc =  File.expand_path(File.dirname(__FILE__)) + "/test_dns_entry_item.ioc"
+	#	RubyIOC::Scanner.new(File.read(dns_test_ioc)).scan
+	#end
+	
+	def test_arp_scan
+		arp_test_ioc =  File.expand_path(File.dirname(__FILE__)) + "/test_arp_entry_item.ioc"
+		RubyIOC::Scanner.new(File.read(arp_test_ioc)).scan
 	end
 end

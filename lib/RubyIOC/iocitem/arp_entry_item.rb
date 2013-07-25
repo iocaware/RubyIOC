@@ -16,6 +16,53 @@ module RubyIOC
 			def get_type
 				"ArpEntryItem"
 			end
+
+			def scan(indicator)
+				if RubyIOC::Platform.windows?
+					return search_windows_arp(indicator)
+				else
+					puts "Not implemented on this platform yet"
+				end
+			end
+
+			def search_windows_arp(indicator)
+				arp = get_windows_arp_cache
+
+				arp.each_line do |line|
+					indicator.each { |i|
+						content = i[:content]
+
+						case i[:search]
+						when "ArpEntryItem/PhysicalAddress"
+							if !(line.downcase.include? "interface") && (line.downcase.gsub("-", ":").include? content.downcase)
+								return true
+							end
+						when "ArpEntryItem/CacheType"
+							if !(line.downcase.include? "interface") && (line.downcase.gsub("-", ":").include? content.downcase)
+								return true
+							end
+						when"ArpEntryItem/IPv4Address"
+							if !(line.downcase.include? "interface") && (line.downcase.gsub("-", ":").include? content.downcase)
+								return true
+							end
+						when "ArpEntryItem/Interface"
+							if (line.downcase.include? "interface") && (line.downcase.include? content.downcase)
+								return true
+							end
+						end
+					}
+				end
+				#puts arp
+				#puts arp.to_yaml
+				return false
+			end
+
+			def get_windows_arp_cache
+				#arp = []
+				arp_cache =`arp -a`
+
+				return arp_cache
+			end
 		end
 
 		class ArpEntryItemFactory < RubyIOC::IOCItem::IOCItemFactory
@@ -31,3 +78,5 @@ module RubyIOC
 		ArpEntryItemFactory.add_factory(ArpEntryItemFactory)
 	end
 end
+
+
