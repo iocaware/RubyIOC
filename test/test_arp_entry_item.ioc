@@ -1,26 +1,56 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="868b1eaa-7d68-4634-9572-a0d442e71814" last-modified="2013-06-17T18:07:08" xmlns="http://schemas.mandiant.com/2010/ioc">
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="868b1eaa-7d68-4634-9572-a0d442e71814" last-modified="2013-07-25T17:59:06" xmlns="http://schemas.mandiant.com/2010/ioc">
   <short_description>*ARP Entry Test IOCr*</short_description>
   <authored_date>2013-06-17T18:00:55</authored_date>
   <links />
   <definition>
     <Indicator operator="OR" id="063979a1-df60-48c8-b514-5d226f192322">
-      <IndicatorItem id="1844b310-86ec-4001-9b2e-144e27f83fae" condition="contains">
-        <Context document="ArpEntryItem" search="ArpEntryItem/Interface" type="mir" />
-        <Content type="IP">0xf</Content>
-      </IndicatorItem>	
-	<IndicatorItem id="935dbf4b-7e57-4b05-90e1-be9b0e388047" condition="contains">
-        <Context document="ArpEntryItem" search="ArpEntryItem/CacheType" type="mir" />
-        <Content type="string">Dynamic</Content>
-      </IndicatorItem>
-      <IndicatorItem id="f75124fd-cc93-419f-90e6-f243e2608e12" condition="contains">
-        <Context document="ArpEntryItem" search="ArpEntryItem/IPv4Address" type="mir" />
-        <Content type="IP">192.168.1.1</Content>
-      </IndicatorItem>
-      <IndicatorItem id="c0b5ea72-52ce-48a2-8580-36d77a33caa5" condition="contains">
-        <Context document="ArpEntryItem" search="ArpEntryItem/PhysicalAddress" type="mir" />
-        <Content type="string">f0:d1:a9:08:6a:60</Content>
-      </IndicatorItem>
+      <Indicator operator="AND" id="ea7f3691-a790-4295-93ce-58ef7ccdcebb">
+        <IndicatorItem id="7cc9932d-64e5-478e-ae28-b676ce033fa1" condition="contains">
+          <Context document="ArpEntryItem" search="ArpEntryItem/IPv4Address" type="mir" />
+          <Content type="IP">192.168.1.1</Content>
+        </IndicatorItem>
+        <IndicatorItem id="8f2280f7-ad34-4718-8f7c-32ba28c71f5c" condition="contains">
+          <Context document="ArpEntryItem" search="ArpEntryItem/PhysicalAddress" type="mir" />
+          <Content type="string">f0:d1:a9:08:6a:60</Content>
+        </IndicatorItem>
+        <IndicatorItem id="17c2ad4f-3f8f-43fa-8aee-e19df4afbae9" condition="contains">
+          <Context document="ArpEntryItem" search="ArpEntryItem/Interface" type="mir" />
+          <Content type="IP">en1</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="8757b126-6b67-47f6-b77a-8158c0a71116">
+        <IndicatorItem id="ba09a245-63b0-4657-9402-f8ecb13693a6" condition="contains">
+          <Context document="ArpEntryItem" search="ArpEntryItem/Interface" type="mir" />
+          <Content type="IP">eth0</Content>
+        </IndicatorItem>
+        <IndicatorItem id="4269d1ab-0b04-4a67-8946-9ca23d6257e0" condition="contains">
+          <Context document="ArpEntryItem" search="ArpEntryItem/IPv4Address" type="mir" />
+          <Content type="IP">192.168.1.1</Content>
+        </IndicatorItem>
+        <IndicatorItem id="7c19b193-86be-455f-8be0-13075cb08b04" condition="contains">
+          <Context document="ArpEntryItem" search="ArpEntryItem/PhysicalAddress" type="mir" />
+          <Content type="string">f0:d1:a9:08:6a:60</Content>
+        </IndicatorItem>
+      </Indicator>
+      <Indicator operator="AND" id="c2a54d35-2c29-4526-8177-db9829985bb6">
+        <IndicatorItem id="6776d766-9ef9-445c-8e94-f1da9364a8f9" condition="contains">
+          <Context document="ArpEntryItem" search="ArpEntryItem/Interface" type="mir" />
+          <Content type="IP">0xf</Content>
+        </IndicatorItem>
+        <IndicatorItem id="656d1f71-8bde-4ed0-8a6f-7667d523aedb" condition="contains">
+          <Context document="ArpEntryItem" search="ArpEntryItem/CacheType" type="mir" />
+          <Content type="string">Dynamic</Content>
+        </IndicatorItem>
+        <IndicatorItem id="d4533bab-5a5d-4869-9a31-3da0b4a82e45" condition="contains">
+          <Context document="ArpEntryItem" search="ArpEntryItem/IPv4Address" type="mir" />
+          <Content type="IP">192.168.1.1</Content>
+        </IndicatorItem>
+        <IndicatorItem id="ab9d4e19-d472-4ec3-a63e-f1e9606daed3" condition="contains">
+          <Context document="ArpEntryItem" search="ArpEntryItem/PhysicalAddress" type="mir" />
+          <Content type="string">f0:d1:a9:08:6a:60</Content>
+        </IndicatorItem>
+      </Indicator>
     </Indicator>
   </definition>
 </ioc>

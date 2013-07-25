@@ -20,13 +20,15 @@ module RubyIOC
 			def scan(indicator)
 				if RubyIOC::Platform.windows?
 					return search_windows_arp(indicator)
+				elseif Ruby::Platform::mac?
+					return search_mac_arp(indicator)
 				else
 					puts "Not implemented on this platform yet"
 				end
 			end
 
 			def search_windows_arp(indicator)
-				arp = get_windows_arp_cache
+				arp = get_arp_cache
 
 				arp.each_line do |line|
 					indicator.each { |i|
@@ -48,9 +50,32 @@ module RubyIOC
 				#puts arp.to_yaml
 				return false
 			end
+			
+			def search_mac_arp(indicator)
+				arp = get_cache
+				return false
+				arp.each_line do |line|
+					indicator.each { |i|
+						content = i[:content]
 
-			def get_windows_arp_cache
-				#arp = []
+						case i[:search]
+						when "ArpEntryItem/PhysicalAddress", "ArpEntryItem/CacheType", "ArpEntryItem/IPv4Address"
+							if !(line.downcase.include? "interface") && (line.downcase.gsub("-", ":").include? content.downcase)
+								return true
+							end
+						when "ArpEntryItem/Interface"
+							if (line.downcase.include? "interface") && (line.downcase.include? content.downcase)
+								return true
+							end
+						end
+					}
+				end
+				#puts arp
+				#puts arp.to_yaml
+				return false
+			end
+
+			def get_arp_cache
 				arp_cache =`arp -a`
 
 				return arp_cache
