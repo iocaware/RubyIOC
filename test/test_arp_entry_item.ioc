@@ -36,7 +36,7 @@
       <Indicator operator="AND" id="c2a54d35-2c29-4526-8177-db9829985bb6">
         <IndicatorItem id="6776d766-9ef9-445c-8e94-f1da9364a8f9" condition="contains">
           <Context document="ArpEntryItem" search="ArpEntryItem/Interface" type="mir" />
-          <Content type="IP">0xf</Content>
+          <Content type="IP">0xc</Content>
         </IndicatorItem>
         <IndicatorItem id="656d1f71-8bde-4ed0-8a6f-7667d523aedb" condition="contains">
           <Context document="ArpEntryItem" search="ArpEntryItem/CacheType" type="mir" />
@@ -44,11 +44,11 @@
         </IndicatorItem>
         <IndicatorItem id="d4533bab-5a5d-4869-9a31-3da0b4a82e45" condition="contains">
           <Context document="ArpEntryItem" search="ArpEntryItem/IPv4Address" type="mir" />
-          <Content type="IP">192.168.1.1</Content>
+          <Content type="IP">192.168.237.2</Content>
         </IndicatorItem>
         <IndicatorItem id="ab9d4e19-d472-4ec3-a63e-f1e9606daed3" condition="contains">
           <Context document="ArpEntryItem" search="ArpEntryItem/PhysicalAddress" type="mir" />
-          <Content type="string">f0:d1:a9:08:6a:60</Content>
+          <Content type="string">00:50:56:ff:ad:9a</Content>
         </IndicatorItem>
       </Indicator>
     </Indicator>

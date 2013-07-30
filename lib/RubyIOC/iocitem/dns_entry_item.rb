@@ -26,18 +26,17 @@ module RubyIOC
 			end
 
 			def search_windows_dns(indicator)
-				dns = get_windows_dns_cache
-				puts dns.to_yaml
-				return false
-			end
-
-			def get_windows_dns_cache
-				dns = []
-				dns_cache =`ipconfig /displaydns`
+				dns_cache = get_windows_dns_cache
+				puts dns_cache
+				
 				blocks = dns_cache.split(/\n\n/)
+				
 				blocks.each do | block |
-					#puts block
+					noblanklines = block.gsub(/^$\n/, '').downcase
+					host = noblanklines.lines.first
+					
 					temp = {}
+					temp[:host] = host
 					temp[:record_name] = block.match(/\s*Record Name.*:\s(?<record>.*)/).to_a[1]
 					temp[:record_type] = block.match(/\s*Record Type.*:\s(?<record>.*)/).to_a[1]
 					temp[:time_to_live] = block.match(/\s*Time To Live.*:\s(?<record>.*)/).to_a[1]
@@ -45,9 +44,47 @@ module RubyIOC
 					temp[:section] = block.match(/\s*Section.*:\s(?<record>.*)/).to_a[1]
 					temp[:a_record] = block.match(/\s*A \(Host\) Record.*:\s(?<record>.*)/).to_a[1]
 					temp[:cname] = block.match(/\s*CNAME Record.*:\s(?<record>.*)/).to_a[1]
-					dns << temp
+					#puts temp
+					indicator.each { |i|
+						content = i[:content].downcase
+						
+						case i[:search]
+						when "DnsEntryItem/Host"
+							if !temp[:host].nil? and temp[:host].downcase.strip == content then
+								return true
+							end
+						when "DnsEntryItem/RecordName"
+							if !temp[:record_name].nil? and temp[:record_name].downcase.strip == content then
+								return true
+							end
+						when "DnsEntryItem/RecordType"
+							if !temp[:record_type].nil? and temp[:record_type].downcase.strip == content then
+								return true
+							end
+						when "DnsEntryItem/TimeToLive"
+							if !temp[:time_to_live].nil? and temp[:time_to_live].downcase.strip == content then
+								return true
+							end
+						when "DnsEntryItem/Flags"
+						when "DnsEntryItem/DataLength"
+							if !temp[:data_length].nil? and temp[:data_length].downcase.strip == content then
+								return true
+							end
+						when "DnsEntryItem/RecordData/Host"
+						when "DnsEntryItem/RecordData/IPv4Address"
+							if !temp[:a_record].nil? and temp[:a_record].downcase.strip == content then
+								return true
+							end
+						end
+					}
 				end
-				return dns
+				
+				return false
+			end
+
+			def get_windows_dns_cache
+				dns_cache =`ipconfig /displaydns`
+				return dns_cache
 			end
 		end
 
