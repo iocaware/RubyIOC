@@ -58,13 +58,9 @@ module RubyIOC
 					when "EventLogItem/writeTime"
 					end
 				}
-				#query = query
-				# 20121120202644.384874-000
-				# 20121120204608.735041-000
-				# 20121120202708.000000-000
-				#puts '20121120204608.735041-000'[4, 2]
-				wat = wmi.ExecQuery(query)
-				wat.each { |w|
+
+				events = wmi.ExecQuery(query)
+				events.each { |e|
 					return true
 				}
 				return false

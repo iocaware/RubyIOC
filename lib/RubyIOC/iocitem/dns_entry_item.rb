@@ -27,7 +27,6 @@ module RubyIOC
 
 			def search_windows_dns(indicator)
 				dns_cache = get_windows_dns_cache
-				puts dns_cache
 				
 				blocks = dns_cache.split(/\n\n/)
 				
