@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="5a36460c-a57c-4cfd-9731-f3494af1fd19" last-modified="2013-08-01T15:28:38" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>*EventLog Entry Test IOC*</short_description>
+  <authored_date>2013-08-01T15:25:30</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="8909fba8-d368-4dfb-80e9-3c5bc1414d18">
+      <IndicatorItem id="2011b44a-3ae5-4913-b3e5-9de81449cdcb" condition="contains">
+        <Context document="EventLogItem" search="EventLogItem/category" type="mir" />
+        <Content type="string">Startup of the UMDF reflector</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a60acc9e-677f-4e3f-853c-fa4d3a55d800" condition="contains">
+        <Context document="EventLogItem" search="EventLogItem/categoryNum" type="mir" />
+        <Content type="string">101</Content>
+      </IndicatorItem>
+      <IndicatorItem id="23a5f59d-8aa0-4301-a4e0-f2dbcad956ab" condition="is">
+        <Context document="EventLogItem" search="EventLogItem/genTime" type="mir" />
+        <Content type="date">20121120204608.735041-000</Content>
+      </IndicatorItem>
+      <IndicatorItem id="38c618d6-8699-46d6-b9dc-c772911b21c8" condition="is">
+        <Context document="EventLogItem" search="EventLogItem/EID" type="mir" />
+        <Content type="int">5615</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eb983742-4953-4c76-94fb-5b2c699acd94" condition="contains">
+        <Context document="EventLogItem" search="EventLogItem/log" type="mir" />
+        <Content type="string">System</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a567613d-f99f-4030-b232-47dd49fd0c16" condition="contains">
+        <Context document="EventLogItem" search="EventLogItem/machine" type="mir" />
+        <Content type="string">Win8</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3b5758ac-d356-4912-921f-99744e9a8716" condition="contains">
+        <Context document="EventLogItem" search="EventLogItem/message" type="mir" />
+        <Content type="string">P1: 7.8.9200.16465</Content>
+      </IndicatorItem>
+      <IndicatorItem id="89ba60af-ab43-47dd-aa22-46dbbe9c8c19" condition="contains">
+        <Context document="EventLogItem" search="EventLogItem/source" type="mir" />
+        <Content type="string">MsiInstaller</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f4618c66-92f1-468e-bee9-288404469100" condition="contains">
+        <Context document="EventLogItem" search="EventLogItem/type" type="mir" />
+        <Content type="string">Error</Content>
+      </IndicatorItem>
+      <IndicatorItem id="77ae9c7e-c1cf-4ebd-8abc-c9156351249f" condition="contains">
+        <Context document="EventLogItem" search="EventLogItem/user" type="mir" />
+        <Content type="string">SYSTEM</Content>
+      </IndicatorItem>
+      <IndicatorItem id="55b298ba-7fa2-4faf-9853-c9ae4c2964fb" condition="is">
+        <Context document="EventLogItem" search="EventLogItem/writeTime" type="mir" />
+        <Content type="date">20121228232521.930418-000</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>

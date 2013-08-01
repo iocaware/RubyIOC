@@ -10,11 +10,64 @@
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
+
+if RubyIOC::Platform.windows?
+	require "win32ole"
+end
+
 module RubyIOC
 	module IOCItem
 		class EventLogItem < RubyIOC::IOCTerm
 			def get_type
 				"EventLogItem"
+			end
+		
+			def scan(indicator)
+				if RubyIOC::Platform.windows?
+					return search_windows_events(indicator)
+				else
+					puts "Not implemented on this platform yet"
+				end
+			end
+			
+			def search_windows_events(indicator)
+				wmi = WIN32OLE.connect("winmgmts:{impersonationLevel=impersonate,(Security)}!\\")
+				query = "Select * from Win32_NTLogEvent where "
+				
+				indicator.each { |i| 
+					case i[:search]
+					when "EventLogItem/category"
+						query += "CategoryString = '#{i[:content]}' "
+					when "EventLogItem/categoryNum"
+						query += "Category = #{i[:content]} "
+					when "EventLogItem/genTime"
+					when "EventLogItem/EID"
+						query += "EventIdentifier = #{i[:content]} "
+					when "EventLogItem/log"
+						query += "LogFile = '#{i[:content]}' "
+					when "EventLogItem/machine"
+						query += "ComputerName = '#{i[:content]}' "
+					when "EventLogItem/message"
+						query += "Message like '%#{i[:content]}%' "
+					when "EventLogItem/source"
+						query += "SourceName = '#{i[:content]}' "
+					when "EventLogItem/type"
+						query += "Type = '#{i[:content]}' "
+					when "EventLogItem/user"
+						query += "User like '%#{i[:content]}%' "
+					when "EventLogItem/writeTime"
+					end
+				}
+				#query = query
+				# 20121120202644.384874-000
+				# 20121120204608.735041-000
+				# 20121120202708.000000-000
+				#puts '20121120204608.735041-000'[4, 2]
+				wat = wmi.ExecQuery(query)
+				wat.each { |w|
+					return true
+				}
+				return false
 			end
 		end
 

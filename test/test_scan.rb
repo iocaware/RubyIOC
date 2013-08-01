@@ -18,4 +18,9 @@ class TestScan < Test::Unit::TestCase
 		arp_test_ioc =  File.expand_path(File.dirname(__FILE__)) + "/test_arp_entry_item.ioc"
 		RubyIOC::Scanner.new(File.read(arp_test_ioc)).scan
 	end
+	
+	def test_event_log
+		event_log_test_ioc =  File.expand_path(File.dirname(__FILE__)) + "/test_event_log_item.ioc"
+		RubyIOC::Scanner.new(File.read(event_log_test_ioc)).scan
+	end
 end
