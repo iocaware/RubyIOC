@@ -16,6 +16,73 @@ module RubyIOC
 			def get_type
 				"VolumeItem"
 			end
+			
+			def scan(indicator)
+				if RubyIOC::Platform.windows?
+					return search_windows_volumes(indicator)
+				else
+					puts "Not implemented on this platform yet"
+				end
+			end
+			
+			def search_windows_volumes(indicator)
+				wmi = WIN32OLE.connect("winmgmts:\\")
+				queryVolume = "Select * from Win32_Volume where "
+				queryLogicalDisk = "Select * from Win32_LogicalDisk where "
+				query = ""
+				getLogicalDisk = false
+				
+				voltypes = Hash[
+					"DRIVE_UNKNOWN" => "0", 
+					"DRIVE_NO_ROOT_DIR" => "1", 
+					"DRIVE_REMOVABLE" => "2", 
+					"DRIVE_FIXED" => "3", 
+					"DRIVE_REMOTE" => "4", 
+					"DRIVE_CDROM" => "5", 
+					"DRIVE_RAMDISK" => "6"
+				]
+				
+				indicator.each { |i| 
+					case i[:search]
+					when "VolumeItem/ActualAvailableAllocationUnits"
+						query += "FreeSpace = #{i[:content]} "
+					when "VolumeItem/BytesPerSector"
+						query += "BlockSize = #{i[:content]} "
+					when "VolumeItem/CreationTime"
+						query += "InstallDate = '#{i[:content]}' "
+					when "VolumeItem/DevicePath"
+					when "VolumeItem/DriveLetter"
+						query += "DriveLetter = '#{i[:content]}' "
+					when "VolumeItem/FileSystemFlags"
+					when "VolumeItem/FileSystemName"
+						query += "FileSystem = '#{i[:content]}' "
+						getLogicalDisk = true
+					when "VolumeItem/IsMounted"
+					when "VolumeItem/Name"
+						query += "VolumeName = '#{i[:content]}' "
+						getLogicalDisk = true
+					when "VolumeItem/SectorsPerAllocationUnit"
+					when "VolumeItem/SerialNumber"
+						query += "SerialNumber = '#{i[:content]}' "
+					when "VolumeItem/TotalAllocationUnits"
+						query += "Capacity = #{i[:content]} "
+					when "VolumeItem/Type"
+						query += "DriveType = #{voltypes[i[:content]]} "
+					end
+				}
+				
+				if getLogicalDisk then
+					query = "Select * from Win32_LogicalDisk where " + query
+				else
+					query = "Select * from Win32_Volume where " + query
+				end
+
+				volumes = wmi.ExecQuery(query)
+				volumes.each { |v|
+					return true
+				}
+				return false
+			end
 		end
 
 		class VolumeItemFactory < RubyIOC::IOCItem::IOCItemFactory

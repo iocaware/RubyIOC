@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="868b1eaa-7d68-4634-9572-a0d442e71814" last-modified="2013-07-25T17:59:06" xmlns="http://schemas.mandiant.com/2010/ioc">
-  <short_description>*ARP Entry Test IOCr*</short_description>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="868b1eaa-7d68-4634-9572-a0d442e71814" last-modified="2013-08-04T03:44:46" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>*ARP Entry Test IOC*</short_description>
+  <authored_by>IOCAware</authored_by>
   <authored_date>2013-06-17T18:00:55</authored_date>
   <links />
   <definition>

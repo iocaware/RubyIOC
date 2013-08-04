@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="5a36460c-a57c-4cfd-9731-f3494af1fd19" last-modified="2013-08-01T15:28:38" xmlns="http://schemas.mandiant.com/2010/ioc">
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="5a36460c-a57c-4cfd-9731-f3494af1fd19" last-modified="2013-08-04T03:43:19" xmlns="http://schemas.mandiant.com/2010/ioc">
   <short_description>*EventLog Entry Test IOC*</short_description>
+  <authored_by>IOCAware</authored_by>
   <authored_date>2013-08-01T15:25:30</authored_date>
   <links />
   <definition>

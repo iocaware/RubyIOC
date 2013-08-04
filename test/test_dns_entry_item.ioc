@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="efce87c7-f78f-4e32-8f3f-b470d1ec693f" last-modified="2013-01-07T01:29:04" xmlns="http://schemas.mandiant.com/2010/ioc">
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="efce87c7-f78f-4e32-8f3f-b470d1ec693f" last-modified="2013-08-04T03:43:19" xmlns="http://schemas.mandiant.com/2010/ioc">
   <short_description>*DNS Entry Test IOC*</short_description>
+  <authored_by>IOCAware</authored_by>
   <authored_date>2013-01-07T01:25:50</authored_date>
   <links />
   <definition>

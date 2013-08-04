@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="6d598961-1ab6-49db-b230-de5ed2ba42f7" last-modified="2013-08-04T16:11:08" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>*Volume Item Test IOC*</short_description>
+  <authored_by>IOCAware</authored_by>
+  <authored_date>2013-08-04T04:01:57</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="3c503fa2-26d5-4b02-b612-60cf62208fd9">
+      <IndicatorItem id="e52f0363-e22b-46df-b724-4dde0c99d2e6" condition="is">
+        <Context document="VolumeItem" search="VolumeItem/ActualAvailableAllocationUnits" type="mir" />
+        <Content type="int">27948756992</Content>
+      </IndicatorItem>
+      <IndicatorItem id="52071826-283a-420a-a89b-87d06879740f" condition="is">
+        <Context document="VolumeItem" search="VolumeItem/BytesPerSector" type="mir" />
+        <Content type="int">4096</Content>
+      </IndicatorItem>
+      <IndicatorItem id="562b90eb-0642-4c9d-8d89-25f4060c8f79" condition="is">
+        <Context document="VolumeItem" search="VolumeItem/CreationTime" type="mir" />
+        <Content type="date" />
+      </IndicatorItem>
+      <IndicatorItem id="22613831-5260-4e5d-96c6-168e416b5e64" condition="contains">
+        <Context document="VolumeItem" search="VolumeItem/DevicePath" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="5218a43b-99ac-476d-9207-612ee7afa179" condition="is">
+        <Context document="VolumeItem" search="VolumeItem/DriveLetter" type="mir" />
+        <Content type="string">E:</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2b182820-076d-48a9-85be-0aaec9c42362" condition="contains">
+        <Context document="VolumeItem" search="VolumeItem/FileSystemFlags" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="f27c2ba3-5b79-4ce6-b48c-655b89ea2f17" condition="is">
+        <Context document="VolumeItem" search="VolumeItem/FileSystemName" type="mir" />
+        <Content type="string">NTFS</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eb3c817c-9374-4e85-a911-001257f29f00" condition="is">
+        <Context document="VolumeItem" search="VolumeItem/IsMounted" type="mir" />
+        <Content type="string">true</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b9b7606e-9c9b-49ba-8105-6f2e1748e4d6" condition="contains">
+        <Context document="VolumeItem" search="VolumeItem/Name" type="mir" />
+        <Content type="string">Installs</Content>
+      </IndicatorItem>
+      <IndicatorItem id="635cf2ce-bf20-4198-9007-da73bd899b75" condition="contains">
+        <Context document="VolumeItem" search="VolumeItem/SectorsPerAllocationUnit" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="a7617aee-9e7a-4755-bdc2-05ba4202d6fd" condition="is">
+        <Context document="VolumeItem" search="VolumeItem/SerialNumber" type="mir" />
+        <Content type="string">2119600036</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c48ffe07-4570-4899-aa62-e7097256209d" condition="is">
+        <Context document="VolumeItem" search="VolumeItem/TotalAllocationUnits" type="mir" />
+        <Content type="string">212696297472</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e58e0fa5-943e-4f28-a22e-20f2c23e2ed4" condition="contains">
+        <Context document="VolumeItem" search="VolumeItem/Type" type="mir" />
+        <Content type="string">DRIVE_FIXED</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>

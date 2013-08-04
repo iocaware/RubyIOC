@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="9cbcf8e7-eded-4804-8bfe-51b8af0a4657" last-modified="2013-08-02T04:15:28" xmlns="http://schemas.mandiant.com/2010/ioc">
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="9cbcf8e7-eded-4804-8bfe-51b8af0a4657" last-modified="2013-08-04T03:43:14" xmlns="http://schemas.mandiant.com/2010/ioc">
   <short_description>*PortItem Entry Test IOC*</short_description>
+  <authored_by>IOCAware</authored_by>
   <authored_date>2013-08-02T04:10:39</authored_date>
   <links />
   <definition>
@@ -15,7 +16,7 @@
       </IndicatorItem>
       <IndicatorItem id="7d7257a7-357e-4093-9310-995b7850525a" condition="is">
         <Context document="PortItem" search="PortItem/localPort" type="mir" />
-        <Content type="int">1025</Content>
+        <Content type="int">2968</Content>
       </IndicatorItem>
       <IndicatorItem id="6e0d0aa9-3181-4d03-901f-b777b0c96ed3" condition="contains">
         <Context document="PortItem" search="PortItem/path" type="mir" />
@@ -23,11 +24,11 @@
       </IndicatorItem>
       <IndicatorItem id="16aec65b-30f5-4504-8b4a-d7edd6d04725" condition="is">
         <Context document="PortItem" search="PortItem/pid" type="mir" />
-        <Content type="int">476</Content>
+        <Content type="int">584460</Content>
       </IndicatorItem>
       <IndicatorItem id="5cb46c09-10f5-4456-826a-1edb1fc78173" condition="contains">
         <Context document="PortItem" search="PortItem/process" type="mir" />
-        <Content type="string">System</Content>
+        <Content type="string">EEventManager.exe</Content>
       </IndicatorItem>
       <IndicatorItem id="d4f3b040-ea8d-460a-9c95-fc2a0966e060" condition="contains">
         <Context document="PortItem" search="PortItem/protocol" type="mir" />
