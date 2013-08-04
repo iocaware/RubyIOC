@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="9cbcf8e7-eded-4804-8bfe-51b8af0a4657" last-modified="2013-08-02T04:15:28" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>*PortItem Entry Test IOC*</short_description>
+  <authored_date>2013-08-02T04:10:39</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="6d0f71b6-bff6-4870-8762-5f355df147e9">
+      <IndicatorItem id="f9a767af-82ee-440c-a7f5-c28665d0a1c6" condition="is">
+        <Context document="PortItem" search="PortItem/CreationTime" type="mir" />
+        <Content type="date" />
+      </IndicatorItem>
+      <IndicatorItem id="90d19f3b-c144-4772-ac2d-9467e1176d85" condition="contains">
+        <Context document="PortItem" search="PortItem/localIP" type="mir" />
+        <Content type="string">0.0.0.0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7d7257a7-357e-4093-9310-995b7850525a" condition="is">
+        <Context document="PortItem" search="PortItem/localPort" type="mir" />
+        <Content type="int">1025</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6e0d0aa9-3181-4d03-901f-b777b0c96ed3" condition="contains">
+        <Context document="PortItem" search="PortItem/path" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="16aec65b-30f5-4504-8b4a-d7edd6d04725" condition="is">
+        <Context document="PortItem" search="PortItem/pid" type="mir" />
+        <Content type="int">476</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5cb46c09-10f5-4456-826a-1edb1fc78173" condition="contains">
+        <Context document="PortItem" search="PortItem/process" type="mir" />
+        <Content type="string">System</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d4f3b040-ea8d-460a-9c95-fc2a0966e060" condition="contains">
+        <Context document="PortItem" search="PortItem/protocol" type="mir" />
+        <Content type="string">TCP</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6331786b-a690-41df-aea4-61071945b10d" condition="contains">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir" />
+        <Content type="IP">0.0.0.0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="de2df8fd-ed8d-4c04-8f83-b3a907866d1d" condition="is">
+        <Context document="PortItem" search="PortItem/remotePort" type="mir" />
+        <Content type="int">0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="de709789-31bd-4ff1-899e-11e16ae8cb55" condition="contains">
+        <Context document="PortItem" search="PortItem/state" type="mir" />
+        <Content type="string">LISTENING</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>
