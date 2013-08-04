@@ -27,8 +27,6 @@ module RubyIOC
 			
 			def search_windows_volumes(indicator)
 				wmi = WIN32OLE.connect("winmgmts:\\")
-				queryVolume = "Select * from Win32_Volume where "
-				queryLogicalDisk = "Select * from Win32_LogicalDisk where "
 				query = ""
 				getLogicalDisk = false
 				
