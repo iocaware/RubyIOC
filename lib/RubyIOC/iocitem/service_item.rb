@@ -16,7 +16,99 @@ module RubyIOC
 			def get_type
 				"ServiceItem"
 			end
+			
+			def scan(indicator)
+				if RubyIOC::Platform.windows?
+					return search_windows_services(indicator)
+				else
+					puts "Not implemented on this platform yet"
+				end
+			end
+			
+			def search_windows_services(indicator)
+				wmi = WIN32OLE.connect("winmgmts:\\")
+				query = "Select * from Win32_Service where "
+				getLogicalDisk = false
+				
+				servicemodetypes = Hash[
+					"SERVICE_AUTO_START" => "Auto", 
+					"SERVICE_BOOT_START" => "Boot", 
+					"SERVICE_DEMAND_START" => "Manual", 
+					"SERVICE_DISABLED" => "Disabled", 
+					"SERVICE_SYSTEM_START" => "System", 
+				]
+				
+				servicestatustypes = Hash[
+					"SERVICE_CONTINUE_PENDING" => "Continue Pending", 
+					"SERVICE_PAUSE_PENDING" => "Pause Pending", 
+					"SERVICE_PAUSED" => "Paused", 
+					"SERVICE_RUNNING" => "Running", 
+					"SERVICE_START_PENDING" => "Start Pending", 
+					"SERVICE_STOP_PENDING" => "Stop Pending", 
+					"SERVICE_STOPPED" => "Stopped", 
+					#***#
+					"SERVICE_UNKNOWN" => "Unknown"
+				]
+				
+				servicetypetypes = Hash[
+					"SERVICE_KERNEL_DRIVER" => "Kernel Driver", 
+					"SERVICE_FILE_SYSTEM_DRIVER" => "File System Driver", 
+					"SERVICE_WIN32_OWN_PROCESS" => "Own Process", 
+					"SERVICE_WIN32_SHARE_PROCESS" => "Share Process", 
+					#***#
+					"SERVICE_ADAPTER" => "Adapter", 
+					"SERVICE_RECOGNIZER_DRIVER" => "Recognizer Driver", 
+					"SERVICE_WIN32_INTERACTIVE_PROCESS" => "Interactive Process"
+				]
+				
+				indicator.each { |i| 
+					case i[:search]
+					when "ServiceItem/arguments"
+					when "ServiceItem/description"
+						query += "Description like '%#{i[:content]}%' "
+					when "ServiceItem/descriptiveName"
+						query += "DisplayName = '#{i[:content]}' "
+					when "ServiceItem/serviceDLL"
+					when "ServiceItem/serviceDLLCertificateIssuer"
+					when "ServiceItem/serviceDLLCertificateSubject"
+					when "ServiceItem/serviceDLLmd5sum"
+					when "ServiceItem/serviceDLLsha1sum"
+					when "ServiceItem/serviceDLLsha256sum"
+					when "ServiceItem/serviceDLLSignatureDescription"
+					when "ServiceItem/serviceDLLSignatureVerified"
+					when "ServiceItem/serviceDLLSignatureExists"
+					when "ServiceItem/mode"
+						query += "StartMode = '#{servicemodetypes[i[:content]]}' "
+					when "ServiceItem/name"
+						query += "Name = '#{i[:content]}' "
+					when "VolumeItem/DriveLetter"
+						query += "DriveLetter = '#{i[:content]}' "
+					when "VolumeItem/FileSystemFlags"
+					when "VolumeItem/FileSystemName"
+						query += "FileSystem = '#{i[:content]}' "
+						getLogicalDisk = true
+					when "VolumeItem/IsMounted"
+					when "VolumeItem/Name"
+						query += "VolumeName = '#{i[:content]}' "
+						getLogicalDisk = true
+					when "VolumeItem/SectorsPerAllocationUnit"
+					when "VolumeItem/SerialNumber"
+						query += "SerialNumber = '#{i[:content]}' "
+					when "VolumeItem/TotalAllocationUnits"
+						query += "Capacity = #{i[:content]} "
+					when "VolumeItem/Type"
+						query += "DriveType = #{voltypes[i[:content]]} "
+					end
+				}
+				
+				services = wmi.ExecQuery(query)
+				services.each { |s|
+					return true
+				}
+				return false
+			end
 		end
+		
 
 		class ServiceItemFactory < RubyIOC::IOCItem::IOCItemFactory
 			def get_type

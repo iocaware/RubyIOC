@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="44cd6057-0313-4d10-9d4e-ea457de93964" last-modified="2013-08-07T18:22:10" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <short_description>*Service Entry Test IOC*</short_description>
+  <authored_by>IOCAware</authored_by>
+  <authored_date>2013-08-07T18:05:53</authored_date>
+  <links />
+  <definition>
+    <Indicator operator="OR" id="e3aa1508-a120-46bb-a015-966d2f7f53a7">
+      <IndicatorItem id="046c285e-f929-49f9-9a5e-cc0ee7d3deb0" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/arguments" type="mir" />
+        <Content type="string">/Embedding</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7d8e279e-bac1-4bcd-951b-52deadc42af4" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/description" type="mir" />
+        <Content type="string">Provides content indexing</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5abb6bf1-4fe1-4ae5-b94c-bb7309100d29" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/descriptiveName" type="mir" />
+        <Content type="string">Windows Search</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3a351f3d-71a7-4b98-8741-8dfe7bcabec6" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLL" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="ae6dd1b2-c84c-49bd-bd36-aead64262d68" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLCertificateIssuer" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="57758373-6472-4f9e-b1b6-43fbb04694a9" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLCertificateSubject" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="96238371-c135-4876-a87e-3385c69c48a6" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLmd5sum" type="mir" />
+        <Content type="md5" />
+      </IndicatorItem>
+      <IndicatorItem id="0e672a9f-165b-4b23-b29e-8913d366fa26" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLsha1sum" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="0cb68a9c-2cd9-4af5-83f7-acae52291970" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLsha256sum" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="6f8cfb60-a6e2-4cc6-8612-2143b3ac4017" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLSignatureDescription" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="bc465ae2-44a2-4e15-98b2-35757575840d" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLSignatureVerified" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="be4e9539-1384-472a-a824-3a2af54ef59a" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLSignatureExists" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="1c992a6c-07ba-4115-8331-c35a132b697b" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/mode" type="mir" />
+        <Content type="string">SERVICE_AUTO_START</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4d0478bd-71a2-484e-83df-cacda3a3ffc6" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/name" type="mir" />
+        <Content type="string">WSearch</Content>
+      </IndicatorItem>
+      <IndicatorItem id="95bc9446-cc36-4600-ae30-94d951173cd4" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/path" type="mir" />
+        <Content type="string">C:\Windows\system32\SearchIndexer.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="19af4a09-08da-45a0-93db-1533e3c6401f" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/pathCertificateIssuer" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="4fa46f05-4f61-40cd-b934-c78964089a1d" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/pathCertificateSubject" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="fe82a84e-527c-4ed4-a28a-503ed354a10a" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/pathmd5sum" type="mir" />
+        <Content type="md5" />
+      </IndicatorItem>
+      <IndicatorItem id="4e7af7d7-85e7-4fce-afe4-e9643a0fcafd" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/pathsha1sum" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="392d1680-61af-428b-99b6-ca457d25eb92" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/pathsha256sum" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="91496c5a-2d5d-46a7-ba29-252ed6d593f2" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/pathSignatureDescription" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="fe3d3a16-8ac5-4a80-9ecc-5a0f922e60a4" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/pathSignatureExists" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="9e46d045-6336-4950-b742-8904ec37e44b" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/pathSignatureVerified" type="mir" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="1b5e0645-dc77-4c00-8f2a-6bafb44eab73" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/pid" type="mir" />
+        <Content type="int">2444</Content>
+      </IndicatorItem>
+      <IndicatorItem id="44766230-8c7c-47c0-89f8-aca65b74983c" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/startedAs" type="mir" />
+        <Content type="string">LocalSystem</Content>
+      </IndicatorItem>
+      <IndicatorItem id="09b027f9-5d61-4ea0-b7ba-bf0a63b5ac26" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/status" type="mir" />
+        <Content type="string">SERVICE_RUNNING</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d8ac4411-a8c9-4808-965e-1436ec9ebc28" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/type" type="mir" />
+        <Content type="string">SERVICE_WIN32_OWN_PROCESS</Content>
+      </IndicatorItem>
+    </Indicator>
+  </definition>
+</ioc>
