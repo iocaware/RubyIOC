@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<ioctermlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" last-modified="2013-07-15T21:26:28" description="New IOC Terms File" xmlns="http://schemas.mandiant.com/2010/ioc">
+  <iocterm text="FileItem/Md54ksum" title="File MD54K" data-type="MD5Sum" display-type="md5" term-source="application/iocaware" />
+  <iocterm text="FileItem/Ssdeep" title="File SSDeep" data-type="xs:string" display-type="string" term-source="application/iocaware" />
+  <iocterm text="FileItem/Sha512sum" title="File Sha512sum" data-type="HashSum" display-type="string" term-source="application/iocaware" />
+  <iocterm text="ServiceItem/pathMd54ksum" title="Service Path MD54K" data-type="MD5Sum" display-type="md5" term-source="application/iocaware" />
+  <iocterm text="ServiceItem/pathSsdeep" title="Service Path SSDeep" data-type="xs:string" display-type="string" term-source="application/iocaware" />
+  <iocterm text="ServiceItem/pathSha512sum" title="Service Path Sha512Sum" data-type="HashSum" display-type="string" term-source="application/iocaware" />
+  <iocterm text="ServiceItem/serviceDLLMd54Ksum" title="Service DLL MD54K" data-type="MD5Sum" display-type="md5" term-source="application/iocaware" />
+  <iocterm text="ServiceItem/serviceDLLSsdeep" title="Service DLL SSDeep" data-type="xs:string" display-type="string" term-source="application/iocaware" />
+  <iocterm text="ServiceItem/serviceDLLSha512Sum" title="Service DLL Sha512Sum" data-type="HashSum" display-type="string" term-source="application/iocaware" />
+</ioctermlist>

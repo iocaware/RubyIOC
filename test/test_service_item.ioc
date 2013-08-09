@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="44cd6057-0313-4d10-9d4e-ea457de93964" last-modified="2013-08-07T18:22:10" xmlns="http://schemas.mandiant.com/2010/ioc">
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="44cd6057-0313-4d10-9d4e-ea457de93964" last-modified="2013-08-09T19:04:15" xmlns="http://schemas.mandiant.com/2010/ioc">
   <short_description>*Service Entry Test IOC*</short_description>
   <authored_by>IOCAware</authored_by>
   <authored_date>2013-08-07T18:05:53</authored_date>
@@ -100,7 +100,7 @@
       </IndicatorItem>
       <IndicatorItem id="1b5e0645-dc77-4c00-8f2a-6bafb44eab73" condition="is">
         <Context document="ServiceItem" search="ServiceItem/pid" type="mir" />
-        <Content type="int">2444</Content>
+        <Content type="int">3656</Content>
       </IndicatorItem>
       <IndicatorItem id="44766230-8c7c-47c0-89f8-aca65b74983c" condition="is">
         <Context document="ServiceItem" search="ServiceItem/startedAs" type="mir" />
@@ -113,6 +113,30 @@
       <IndicatorItem id="d8ac4411-a8c9-4808-965e-1436ec9ebc28" condition="is">
         <Context document="ServiceItem" search="ServiceItem/type" type="mir" />
         <Content type="string">SERVICE_WIN32_OWN_PROCESS</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f46a073c-2e04-4772-8dab-6cdd21bc5511" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLMd54Ksum" type="network" />
+        <Content type="md5" />
+      </IndicatorItem>
+      <IndicatorItem id="cba63714-3fd0-486f-b914-ddbe9a8af57d" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLSha512Sum" type="network" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="2bb62d3e-09b9-4676-afa5-a5ef7b81c045" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/serviceDLLSsdeep" type="network" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="e5f2e937-347f-4ae7-83a3-3481c92ea90e" condition="is">
+        <Context document="ServiceItem" search="ServiceItem/pathMd54ksum" type="network" />
+        <Content type="md5" />
+      </IndicatorItem>
+      <IndicatorItem id="cdece8ce-2857-4a5a-858b-bca46513ef7d" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/pathSha512sum" type="network" />
+        <Content type="string" />
+      </IndicatorItem>
+      <IndicatorItem id="d5ff3870-c0ea-441e-98e5-d4581c5924fd" condition="contains">
+        <Context document="ServiceItem" search="ServiceItem/pathSsdeep" type="network" />
+        <Content type="string" />
       </IndicatorItem>
     </Indicator>
   </definition>
