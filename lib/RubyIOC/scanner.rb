@@ -26,7 +26,7 @@ module RubyIOC
 			@ioc.indicators.each { |i| 
 				results << process_indicators(i, results)
 			}
-			puts results.to_yaml
+			return results
 		end
 
 		def get_all_results(items, results)
@@ -90,6 +90,7 @@ module RubyIOC
 			}
 			res[i.id]['result'] = get_result(i.operator, res[i.id])
 			results << res
+			return results
 		end
 
 	end
