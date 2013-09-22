@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				UrlHistoryItem.new
+				UrlHistoryItem.instance
 			end
 		end
 

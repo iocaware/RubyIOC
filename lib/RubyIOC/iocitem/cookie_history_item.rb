@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				CookieHistoryItem.new
+				CookieHistoryItem.instance
 			end
 		end
 

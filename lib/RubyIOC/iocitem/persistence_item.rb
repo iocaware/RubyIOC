@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				PersistenceItem.new
+				PersistenceItem.instance
 			end
 		end
 

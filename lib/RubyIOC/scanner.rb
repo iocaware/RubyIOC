@@ -13,7 +13,7 @@
 require "rubygems"
 require "active_support"
 require "yaml"
-require "pp"
+
 module RubyIOC
 	class Scanner
 		def initialize(iocXML)
@@ -21,59 +21,19 @@ module RubyIOC
 		end
 
 		def scan
-			results = []
+			results = {}
 			indicators = []
 			@ioc.indicators.each { |i| 
-				results << process_indicators(i, results)
+				process_indicators(i, results)
 			}
 			return results
 		end
 
-		def get_all_results(items, results)
-			items.each { | a | 
-				a.each_pair { |k,v| 
-					results << v['result']
-				}
-			}
-			return results
-		end
-
-		def get_result(operator, results) 
-			result = false
-			# setup what indicators we want
-			indicators = results['indicators']
-			if indicators.empty? 
-				indicators = get_all_results(results['items'], [])
-			end
-			case operator
-			when "OR"
-				result = false
-				indicators.each { |ind |
-					if ind == true
-						result = true
-					end
-				}
-			when "AND"
-				result = true
-				indicators.each { |ind|
-					if ind == false
-						result = false
-					end
-				}
-			else 
-				puts "You have me an invalid operator"
-			end
-			return result
-		end
 
 		def process_indicators(i, results)
-			res = {}
-			res[i.id] = {}
-			res[i.id]['items'] = []
-			res[i.id]['operator'] = i.operator
-			res[i.id]['indicators'] = []
+			results[i.id] = Hash.new
+			overall = []
 			i.indicator_item.each { | inditem |
-				search_item = []
 				tmp = {}
 				tmp[:document] = inditem.document
 				tmp[:search] = inditem.search
@@ -81,15 +41,20 @@ module RubyIOC
 				tmp[:content_type] = inditem.content_type
 				tmp[:content] = inditem.content
 				tmp[:context_type] = inditem.context_type
-				search_item << tmp
-				res[i.id]['indicators'] << RubyIOC::IOCItem::IOCItemFactory.item_for(inditem.document).scan(search_item)
+				#res[i.id]['indicators'] 
+				rs = RubyIOC::IOCItem::IOCItemFactory.item_for(inditem.document).scan([tmp])
+				overall << rs
+				results[i.id][inditem.id] = rs
 			}
-
+			case i.operator
+			when "AND"
+				results[i.id]['status'] = overall.all? { |t| t == true}
+			when "OR"
+				results[i.id]['status'] = overall.any? {|t| t == true }
+			end
 			i.indicators.each { |ii |
-				process_indicators(ii, res[i.id]['items'])
+				process_indicators(ii, results)
 			}
-			res[i.id]['result'] = get_result(i.operator, res[i.id])
-			results << res
 			return results
 		end
 

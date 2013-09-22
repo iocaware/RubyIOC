@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				RouteEntryItem.new
+				RouteEntryItem.instance
 			end
 		end
 

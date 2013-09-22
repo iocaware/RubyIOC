@@ -1,0 +1,799 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ioc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.mandiant.com/2010/ioc" id="8fe452a8-dd6e-4713-b671-7794bd22c318" last-modified="2013-06-14T20:26:30Z">
+  <short_description>NETTRAVELER (REPORT)</short_description>
+  <description>Indicators of Compromise derived from information located in the Kaspersky NETTRAVELER report.  This includes Host Based Indicators and Network Based Indicators.</description>
+  <keywords/>
+  <authored_by>Mandiant</authored_by>
+  <authored_date>2013-06-06T13:15:33Z</authored_date>
+  <links>
+    <link rel="group">APT21</link>
+  </links>
+  <definition>
+    <Indicator id="02d9ceff-787c-4edc-a948-1fd2ab2378f0" operator="OR">
+      <IndicatorItem id="cb3cae66-3843-4efa-84a7-f0b6a61c8082" condition="is">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir"/>
+        <Content type="string">C:\net.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4ed3eee4-2d44-43ea-81c5-cc03c1ee855a" condition="is">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir"/>
+        <Content type="string">C:\netmgr.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3a9e536f-e567-4f56-8951-cc9f9c6c49c0" condition="is">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir"/>
+        <Content type="string">C:\netmgr.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0b95043c-17b9-4cb7-814f-278377dc9c53" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">boat-12 is running!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c6ed67e6-6faf-45f6-a185-7e2440a20ebf" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">dochunter2012 is running!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d5d944fc-39bb-450f-a942-66698005d6ac" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">hunter-2012 is running!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e2ec6aa9-a735-43e3-a4d2-36ac771b0517" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">nt-2012 is running!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="515317c7-7356-445c-85cc-b9933e0818ad" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">nettravler is running!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="90c08721-dbbb-4190-8c52-0d4a3c643ff1" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">nettravler2012 is running!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7c4e3afd-3500-4738-b7c0-37c5a0c2e34d" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">sh-2011 is running!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="049b5e3b-8370-45d8-a91d-7d422ea854cf" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">shenghai is running!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6d896b36-0888-4f02-a81f-01808c478315" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">bootuid.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c88348b8-0c07-4f34-86cd-58067040c0a4" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">wuaucit.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3a08be42-a1ea-4c23-80ae-c36e5327bacc" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">6to4ex.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d7733d7c-9671-4fdb-8cfd-ebde49c2c434" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">sysinfo2012.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bca06dfa-804c-4ada-997c-63edfa1ba825" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">Process.dll_d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e78073d4-b891-4107-ad90-7c93e199d925" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">system_t.dll</Content>
+      </IndicatorItem>
+      <IndicatorItem id="737e0c08-f4d4-415b-b4db-afac58c641c3" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir"/>
+        <Content type="string">system32\iasex.dl</Content>
+      </IndicatorItem>
+      <IndicatorItem id="25e9f788-f1b8-4835-b959-62dabecf5a72" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">cmss.exe</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2149b9e0-ebd7-4d4e-8230-512957990a90" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">209.11.241.144</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d856dd1f-386e-4c14-9827-4a11af567953" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">121.12.124.69</Content>
+      </IndicatorItem>
+      <IndicatorItem id="88a3d64f-583d-4112-8456-5c1c364c2c6e" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">61.178.77.111</Content>
+      </IndicatorItem>
+      <IndicatorItem id="eaa0538c-ee77-4a3a-9c7d-6eb21426afe9" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">182.50.130.68</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a0397f22-f08c-4807-9aad-e2ff420b763c" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">103.20.192.59</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e8826db3-e816-4d67-8771-538c0109adda" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">213.156.6.122</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4253405a-ee87-4646-b711-cdf431b9244e" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">209.130.115.38</Content>
+      </IndicatorItem>
+      <IndicatorItem id="19322421-5bde-4308-b534-bf9d3224e557" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">98.143.145.80</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e4f91e16-2104-408f-80e5-46582aff567b" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">96.46.4.237</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bbd6aef9-72e9-44b3-80c6-c5db79252d52" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">109.169.86.178</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fede8d24-30a1-474e-b943-b1f02598af4e" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">125.67.89.156</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3d2a3382-45a4-4fc8-ac81-75eb3ba7bc66" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">142.4.96.6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="39acc9a4-b0a9-4f54-9ef5-97f18f971074" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">124.115.21.209</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f23de402-da91-4e35-851b-f1138d711e5b" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">67.198.140.148</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9cf3bf80-4073-4996-855f-e0a1b9e9dfc1" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">96.44.179.26</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d2ad9256-8b2a-4aa6-a97b-adb2f2d29fc3" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">235.22.123.90</Content>
+      </IndicatorItem>
+      <IndicatorItem id="88917864-1e52-4d61-a2a3-731c70d61ef8" condition="is">
+        <Context document="PortItem" search="PortItem/remoteIP" type="mir"/>
+        <Content type="IP">178.77.45.32</Content>
+      </IndicatorItem>
+      <IndicatorItem id="87e55b26-c682-49d2-83a3-b168f797fd19" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir"/>
+        <Content type="string">startup\seruvice.lnk</Content>
+      </IndicatorItem>
+      <IndicatorItem id="03425da2-bebf-45d4-8679-f07337f298f1" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir"/>
+        <Content type="string">temp\recycler_w\Allindex.ini_d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="dbd742f0-f9aa-4e98-9dd7-5170870b4e0b" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir"/>
+        <Content type="string">temp\recycler_w\Allindex.ini</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3df8414d-0e4d-4638-bdb7-eb1bf9a95ba2" condition="contains">
+        <Context document="FileItem" search="FileItem/FullPath" type="mir"/>
+        <Content type="string">startup\netmgr.lnk</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cd0e04fe-64cc-4896-bddb-3b86cd9104a6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">36ed86602661bb3a7a55e69fde90ee73</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5c05bcdb-b840-4fe6-ac7a-f08e93655000" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">6eb5932b0ed20f11f1a887bcfbdde10f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6e735a9d-3de3-4c14-a44b-4b9dcc9114ff" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">059a7482efee3b2abf67c12d210cb2f7</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b3ca84b6-9f28-4fb1-9780-0fba6474f385" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">e5954b8204eb321d20bed4a86b3cef34</Content>
+      </IndicatorItem>
+      <IndicatorItem id="57c4f822-31ab-4eff-a703-1c9b965812bc" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">63494c74db9bfc2bba3983698c952de9</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9db869bc-f5f2-405f-b1d7-9eb36e8976eb" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">b600089a93275fa93558695b707b87ad</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3777766f-6f73-401a-8b04-c95d212ed007" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">f4f14d4a1e34f62eeb9a90b5c8b2cfc1</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5a8f0d61-ea7b-4d0e-a12f-df12b381f294" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">0e2b10015fe52b7ea77a213f0c330557</Content>
+      </IndicatorItem>
+      <IndicatorItem id="54bcb343-890d-4814-8ba4-70bfaf94743c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">29a420e52b56bfadf9f0701318524bef</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5bbc4997-9a16-4103-833b-4bd34669581c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">01d06f85fce63444c3563fe3bd20c004</Content>
+      </IndicatorItem>
+      <IndicatorItem id="38774bda-126b-4c01-aca1-e95ae63a2eb4" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">03e8d330abc77a6a9d635d2e7c0e213a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4fc76644-3b89-4b06-ab72-edcd7c89a99a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">08e5352a2416bd32a1c07f2d6c2f11fa</Content>
+      </IndicatorItem>
+      <IndicatorItem id="41cba869-40ce-4f8d-b965-a8a0296d77c2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">13b3cb819b460591c27e133e93fb8661</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c4c87396-7353-44fe-9339-9a890c40d116" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">19a0693480c82f2b7fc8659d8f91717a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="00e71c00-4d28-4746-b417-f7aa856cdfb6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">1a70e1e36e6afa454f6457140ac3d2ec</Content>
+      </IndicatorItem>
+      <IndicatorItem id="29978c7d-336e-484d-a3fa-68c3d3b07eac" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">1dcad7c8f56207b2c423353f0c328755</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2f3c1409-0cb2-4a9d-89dd-1d1002432dd8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">1f26e5f9b44c28b37b6cd13283838366</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b12ad028-d6f6-4602-bc8e-f09605d0c438" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">209c3b51cad30c85ca79a9f067ce04cd</Content>
+      </IndicatorItem>
+      <IndicatorItem id="51c56db5-7b29-4043-85ef-29229d86b72a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">22be9cca6e4ec3af327595b890a92fec</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5f96f430-75a8-44aa-a377-e42217ca778f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">28e9faec9de3bbdeb65435bfc377d1f8</Content>
+      </IndicatorItem>
+      <IndicatorItem id="dae3821c-0b25-4753-8ea5-9fcf13123968" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">294da087e6329ae78c1a5fb42b999500</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7b383e05-91c9-451f-a4ea-f222ba81ad0f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">29a394a4ec8a30b5f36c7b874fc9fe10</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4833f293-60e1-40c2-b65c-169632937f59" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">2a43c23a17cd2bc9074a486c47444e7c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="017fb40a-5e69-438c-8b06-90b4ee15b0c0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">2ac8f77548e87b401767c7076adfa00d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2f9ad498-c333-4e18-ade9-acc2c8813fbf" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">2d0e4748d857c12184ed2c94c13ec1ae</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5309e48f-3941-4d4c-8d99-78a32b8d77dd" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">2dc139d82a2a5bf027bcb6a40f75b3f4</Content>
+      </IndicatorItem>
+      <IndicatorItem id="88e2beff-7c44-4c8f-8c3d-0043075b6154" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">33334d8dc36c4ee7739fe2f8b448da72</Content>
+      </IndicatorItem>
+      <IndicatorItem id="72a42f64-4fa2-4dbb-a116-018b03ff7e1a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">36f9a0e71f0b580333c61bfeaa88df39</Content>
+      </IndicatorItem>
+      <IndicatorItem id="56cae0ed-e476-4726-906f-ec08af24c5ce" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">37d588b289c65f10c256e43eba939a0a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fd454f09-60d2-453c-8d1c-c575a41a7474" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">382c1d692dd3cec9b046e5c0eeaf92e6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fc205c04-7083-4781-ad23-cf90f1464d1f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">39c2b2ee24373bf1ef20faff958718bc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b3eea65b-c4de-456e-8b8c-caed97c57790" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">3b4cf5f1ff8c4187e41c6ab80f000491</Content>
+      </IndicatorItem>
+      <IndicatorItem id="868d53e0-3490-41f1-abdf-86deb064a72a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">3cb96fe79aa01c82ac68c54e88918e57</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1cc955a9-eb04-4683-be20-fd3faa36f698" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">482f112cb7cb0293d99f8a7606acbe85</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8da9686a-808e-4af6-9eec-71695cd83874" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">4968882f189236952fd38a11586b395a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bb4a00f5-c85e-4d0b-b9ab-fb9df50e3c22" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">4c8950da250ea135ee77a2644af414ba</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0b0ced31-0899-40fd-af06-682961c8e737" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">524aed944b7f307eea5677eda7e2079a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="ae0d0190-cfc9-483f-9321-c69636c3f1bd" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">54583ccc97c33e358510b563b1536e69</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d9e26cc3-2ed1-4218-a2fa-4fb0b7a35a67" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">57f2374d9f2a787339b0c6a5b1008a72</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3bd1ee6a-e8ed-46ae-aab3-9ee6b843143c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">5e35b31472a2e603a995198d8e8411ed</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6fb6f7fe-5efc-4505-9922-812e5e735897" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">5e7c5e8d9f5864488ddf04b662d1ad8e</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8e3c4924-6a88-447d-b90d-d18e79287f73" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">63f0f91e3ccf5dd00a455d3038a299f4</Content>
+      </IndicatorItem>
+      <IndicatorItem id="3989569a-3269-4844-9b23-fa0651611d54" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">66684b8b82fb5318a41ab7e6abb8dd42</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2be8df47-e588-42fb-8fb4-f58bb5adbfc0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">677f7c42f79a0a58760056529739fdd6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0f025ea5-cc8b-44c4-80ba-88d9a4269e49" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">6afeec03c8f4bc78fa2b3ad27392b0e7</Content>
+      </IndicatorItem>
+      <IndicatorItem id="59c5d848-1f52-4b09-a2d9-8962d28b7d42" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">6d00e4f95fba02126b32bb74dc4fec55</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e94b4491-57e3-455b-a022-0f8a4d1a5cf0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">6d49cdbade7541d46be3fb47a0f563bb</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cc3f92b2-d46e-4819-b8eb-a6f9a9e850b5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">6de813a22b2b73e330085ec7c85e041b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5a803587-5ea4-42e8-9599-725461b25b8a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">71f311a648348e7598eb55ab7618842c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5a3a441c-c318-41d5-bf54-6c81972084ba" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">723129912a2d0fb4aede7100071787ef</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5a893896-8ffe-4f34-9468-c29eba018e8d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">778c1764dd5c36c1eb96c49a8f8441e6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="48b96a23-2d31-4a96-953b-8292c219eab8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">7b92e9d21bc4db838bc102b289f4fd5f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="0ab08f17-850a-4f08-8f92-f43d72ddf16f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">812d8e4d7a484bb363b139cfa08617e5</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5737cc44-14fe-4022-b5d7-05f7b3beb7bf" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">81591ae1c975b8a0b5ad5546a103992c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4edfc51c-3ef8-4eaf-85a7-878673791967" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">81d92e20f3078bd8e43b226308393e43</Content>
+      </IndicatorItem>
+      <IndicatorItem id="32a0c81e-3c35-4794-acbd-6563e06ba19d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">83429db9cc63196bf42c691cc09b7b84</Content>
+      </IndicatorItem>
+      <IndicatorItem id="73eeff8a-73ee-4e61-ae1c-f89dd7efe142" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">852f562812305ad099372109f8e8b189</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fdd8a2ad-369d-4fd1-b285-275194ffee8e" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">85865e048183849b255c92e609a5fa25</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5f00e5b4-976e-45cf-8810-6db6ba06a4c0" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">86cce64193a347b50329a32cdf08d198</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7859f797-c75c-4dee-af37-b9ff242c741d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">89bfd463ca76b62c61a548778316567d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fdd7b5e4-773b-4c9b-bbc0-cc13878fbfd3" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">8ccea94fd83d9cb1b15a2a4befec24a2</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9706da78-b9b2-490d-b783-fc7cdccacc03" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">8d3036a65ac2404d4562cdb927fd3d2c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="60877c19-51e0-4355-84a9-ee16d5f50277" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">8d78a9e3df1e19f9520f2bbb5f04cb54</Content>
+      </IndicatorItem>
+      <IndicatorItem id="1cc4c609-eda4-4a20-8941-117dbd53af55" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">8dc61b737990385473dca9bfc826727b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5d02a11c-04f2-45b5-9924-fa170feffb7a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">95113e04af14c23df607964fa9d83476</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f4104379-9e0d-4081-a866-812a154b2143" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">9b198f1e260700bdcb4740266cd35b3f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a35cb52d-1ca5-499a-94a8-0fc8d34278c6" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">9c1c2825532b25e266d62db50952ab44</Content>
+      </IndicatorItem>
+      <IndicatorItem id="9a6c6ed3-3698-4ec5-b906-54126870e6c3" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">9c544da8c23826379d60581cce17a483</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2e06e28d-5e0e-4fa1-b376-739536492ef8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">a0e350787e4134ea91ccb26d17cdf167</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8b529dbd-7b93-4261-84e6-e8bfb9630849" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">a1169fb2eb93616ced7536a53fb05648</Content>
+      </IndicatorItem>
+      <IndicatorItem id="c1b41935-bb3d-447d-b747-6d498904fb02" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">a431d5786d9d95bc9d04df07cbefc0a2</Content>
+      </IndicatorItem>
+      <IndicatorItem id="44d25047-5843-4c15-8772-c249477ab3aa" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">a6d89df2a80675980fb3e4a9bcc162e2</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fdbf432f-f570-4771-addb-548fb671f0d5" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">a77456a160890a26a8f7c019c2e77021</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e86bc174-4f73-4df0-a339-145dd751eb7a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">aa6f8eff83aea3ff7b8f016e67f74dac</Content>
+      </IndicatorItem>
+      <IndicatorItem id="633282e9-c31a-4ea3-94e3-813df271b8e8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">af6649323daf6dbd3aef1b950588487c</Content>
+      </IndicatorItem>
+      <IndicatorItem id="45d60b96-23fe-40d4-b819-e0cbb8cbef62" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">b3840ec1299517dacd6c18c71ff5bafc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="62154ef0-0366-446f-81ad-5402ca0da4fe" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">b8c99bc028a0a32288d858df7bf6bec1</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2ae5cf87-2a78-409f-85c8-26e1ceba1656" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">b990752f8266d7648070bea7e24d326f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e317734d-27e5-4b7c-a232-d3ce1e8b7197" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">ba026e6190aee2c64ef62a4e79419bcf</Content>
+      </IndicatorItem>
+      <IndicatorItem id="321d1c9c-6f41-42dc-b0e9-74b276e4dd70" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">bea6e3481c0a06ce36600d8b3cc6155b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7495940f-f084-4ee5-8ca5-585382797602" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">c87e8a3ceefd93c7e431b753801c6bb6</Content>
+      </IndicatorItem>
+      <IndicatorItem id="a52c68b5-ac06-4a03-836b-f6652f421eda" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">cb9cc50b18a7c91cf4a34c624b90db5d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="77a5cf84-5ab8-473a-aebd-8c5973e3696e" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">cebaaad59f1616698dec4f14d76b4c9a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="66a315ad-8ad5-451b-9c0b-b9785992c79f" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">d04a7f30c83290b86cac8d762dcc2df5</Content>
+      </IndicatorItem>
+      <IndicatorItem id="4bb113c4-42d2-48c7-bee2-b7b977ca22dc" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">d218706eb07f2722ae4e0106cce27d52</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b3129f70-b417-45ad-af03-f5ddd969b50b" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">d286c4cdf40e2dae5362eff562bccd3a</Content>
+      </IndicatorItem>
+      <IndicatorItem id="73127c3e-0152-4301-b509-ac7d974ed3e8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">d2fe88fff648a0bcbfdf0f0bd042a0a4</Content>
+      </IndicatorItem>
+      <IndicatorItem id="d344790f-56f5-4b02-9303-4593b93b579a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">d354b71116961cad955ed11cb938ca32</Content>
+      </IndicatorItem>
+      <IndicatorItem id="cf6d48a8-a091-4b16-a550-f8970ebb40b4" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">d687cfde1c4ea77de1b92ea2f9e90ad5</Content>
+      </IndicatorItem>
+      <IndicatorItem id="f34ebc7c-9cdd-4028-b514-8ceb4c418273" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">d80c29813bfbc3cbcbd469249d49ebf3</Content>
+      </IndicatorItem>
+      <IndicatorItem id="2f1a035c-1685-4aa6-ae5e-5ad07c55742c" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">d9c0ca95e49b113c5751fffdb20beb3f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="583bff8a-4a40-4a49-9d99-7a14d0d16f52" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">d9cf41b5d11e42dabf9470964d09c000</Content>
+      </IndicatorItem>
+      <IndicatorItem id="b7e3264e-7e80-485a-955b-272ba3cccc7d" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">db6e36f962fdb58c8e9f8f9a781fda66</Content>
+      </IndicatorItem>
+      <IndicatorItem id="50e9dff6-46c4-40c3-aca9-22e3eb2aed54" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">dc01df3c40cb4fb0bef448693475ea1b</Content>
+      </IndicatorItem>
+      <IndicatorItem id="862bbcc3-ddb4-4bbe-82f5-b46f5a6eccb7" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">def612ad0554006378f185d3b56efb57</Content>
+      </IndicatorItem>
+      <IndicatorItem id="72053620-8f31-4d0c-be4e-2ef504c2ad33" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">e51a4cc0272a98e9eddfec16667603f4</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e9e8b1f7-3bfe-4c9c-8f71-67f1f92ac0a2" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">e5b1ffd2ecd7e610d07d093d65639da9</Content>
+      </IndicatorItem>
+      <IndicatorItem id="e50a527b-fadb-482b-82aa-1e3efb474c0e" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">eb5761c410b5139f23235e9b67964495</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7337e421-b1fc-40f4-8abb-69e51ae7e2b1" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">eefc66a1e978dc9d825f28702106d4d5</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fcfea4a1-fbb0-418a-9495-7562936d03d3" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">efa23860086c5d12d3e6b918073c717f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="7e00957f-6f6f-4a1f-8d3c-e8340027b154" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">f3c5c20f5c45fc401484caf72753d778</Content>
+      </IndicatorItem>
+      <IndicatorItem id="161c8feb-cde1-4401-835a-80b179901b61" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">fad8f37c9bd5420f49cfd5960a60fa24</Content>
+      </IndicatorItem>
+      <IndicatorItem id="8bcd5f80-0988-4279-99d7-4182b1bea2c8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">fb3495715764cdaa547f2b040c0a9b1f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="5aa76d01-5ca8-4afd-8b59-b3738154e4a8" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">fc3853c2383e2fbb2af381fd1277504d</Content>
+      </IndicatorItem>
+      <IndicatorItem id="86142deb-aeb2-4d90-9947-bb5c5837309a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">fe16c30782e2b16b07d5a3a1cf9dfb8f</Content>
+      </IndicatorItem>
+      <IndicatorItem id="97398818-5d33-44c2-8076-0dbcd8f7495a" condition="is">
+        <Context document="FileItem" search="FileItem/Md5sum" type="mir"/>
+        <Content type="md5">ff04126a5d61a10c81bfd0a6d0a643d0</Content>
+      </IndicatorItem>
+      <IndicatorItem id="27b4b579-c974-46ce-800c-aa4d82971a70" condition="is">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">instAll serVices noW!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="263ca7df-473d-4b86-8c73-57315001e8e4" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">Is Running!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="6b45898e-cbb5-4cfb-bd2e-f8e38157044b" condition="contains">
+        <Context document="ProcessItem" search="ProcessItem/HandleList/Handle/Name" type="mir"/>
+        <Content type="string">SecuT!</Content>
+      </IndicatorItem>
+      <IndicatorItem id="82e0d7c4-cd8b-4c89-904d-11daed885089" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">Army cyber security Policy 2013.doc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="fb43813d-3bb0-4c56-9a98-066c3f6fedd1" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">Jallianwala bagh massacre a deeply shameful act.doc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="bf1be3c5-a408-47fd-890e-8d387a9c7c42" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">Report - Asia defense spending Boom.doc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="49129e37-753f-401d-a7e2-3af353e85759" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">report--Asia defense spending boom.doc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="37957b8d-49b5-44ed-be61-b8fc2d83e5aa" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">Fax13-0417.doc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="37fffec4-a19e-4bb1-bfef-fa93114d5e29" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">23948-report.doc</Content>
+      </IndicatorItem>
+      <IndicatorItem id="220fe1c2-eadc-4339-af7a-ff803f6c4926" condition="is">
+        <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+        <Content type="string">Alban tushaal Jagsaalt.doc</Content>
+      </IndicatorItem>
+      <Indicator id="95f0eb48-0dce-4e9a-9b87-69eb00f6f49c" operator="AND">
+        <Indicator id="9316f4c4-bf2d-4b5d-adf9-16271a7f9f04" operator="OR">
+          <IndicatorItem id="4d7b40e3-614d-4c85-87db-c6de56db7c05" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">\Temp</Content>
+          </IndicatorItem>
+          <IndicatorItem id="ff7ae916-3599-472c-a60f-01bd9c08337d" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">\AppData</Content>
+          </IndicatorItem>
+          <IndicatorItem id="696c616e-b911-46ec-9925-fdf16a5f9b3e" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">\Adobe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="482fe347-729e-4496-b49f-9c5587617af5" condition="is">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">windows\temp</Content>
+          </IndicatorItem>
+          <IndicatorItem id="6b254f6e-c79a-4609-be0c-0c78da85e55a" condition="is">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">windows\system</Content>
+          </IndicatorItem>
+          <IndicatorItem id="40235793-7a0a-4db5-84de-01c0df5b53b8" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">\Application Data</Content>
+          </IndicatorItem>
+        </Indicator>
+        <Indicator id="9e037cce-b398-4bbc-afad-ee925c554f35" operator="OR">
+          <IndicatorItem id="0398e6eb-f1e6-4a09-a78a-6de7180e87c9" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">netmgr.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="9a58abbd-6e20-4b9a-b624-98d0d1d779a6" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">netmgr.dll</Content>
+          </IndicatorItem>
+          <IndicatorItem id="69b2ee3c-a713-476e-ba18-7592d6fe779d" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">net.exe</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator id="f2246020-74e3-4cbd-819a-3355e043d4a0" operator="AND">
+        <IndicatorItem id="b3365dc6-7f0a-4170-890f-78fdab413c62" condition="contains">
+          <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+          <Content type="string">\Temp</Content>
+        </IndicatorItem>
+        <Indicator id="99476e1a-b53b-49f2-ad44-090524e7cbba" operator="OR">
+          <IndicatorItem id="8df8f3ce-35d4-466e-9ecd-0b13ca3a762f" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">Process.dll</Content>
+          </IndicatorItem>
+          <IndicatorItem id="9deea5a6-66bc-4bd1-ab19-fd91da075aba" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">smcs.exe</Content>
+          </IndicatorItem>
+          <IndicatorItem id="de583d04-7aeb-41c2-ab51-de899d925900" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">winlogin.exe</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator id="4d085dd3-77e0-4a54-8ac9-bda8ac19edb2" operator="AND">
+        <Indicator id="e7c1c512-0f48-48dc-8551-7e0673ab8bc3" operator="OR">
+          <IndicatorItem id="8ad1efa5-6ce0-425b-a4cd-322662b58b07" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">dnlist.ini</Content>
+          </IndicatorItem>
+          <IndicatorItem id="60106292-342a-44b5-a69e-9dd7cd299ba6" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">Win32en.bat</Content>
+          </IndicatorItem>
+          <IndicatorItem id="58981e3b-b5b6-4809-ba4d-66048c1d40f0" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">kyrecord.txt</Content>
+          </IndicatorItem>
+          <IndicatorItem id="2eab47a7-8ceb-4dbf-be20-b1f126dab7f1" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">enumfs.ini</Content>
+          </IndicatorItem>
+          <IndicatorItem id="0640e28b-5bd6-4c6a-970b-4c454af02dac" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">ie.log</Content>
+          </IndicatorItem>
+          <IndicatorItem id="121c25ce-1c29-44bd-9d34-d1147b8abe35" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">install.tmp</Content>
+          </IndicatorItem>
+          <IndicatorItem id="1dbb676b-a0fe-407d-a4f9-469ba38d5c79" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">enumfs.ini</Content>
+          </IndicatorItem>
+          <IndicatorItem id="2d637e79-1e49-48d5-8ad2-33128e08e1a3" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">FmiFen.ini</Content>
+          </IndicatorItem>
+        </Indicator>
+        <Indicator id="bd4b1bc1-8d1a-4e48-871e-8f1adf54098a" operator="OR">
+          <IndicatorItem id="266efd9b-0c39-4578-9aaa-31c17018a742" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">\Temp</Content>
+          </IndicatorItem>
+          <IndicatorItem id="24e0b96d-f60d-45c9-b9b0-5ae9b4583dca" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">\Application Data</Content>
+          </IndicatorItem>
+          <IndicatorItem id="4dc60fb5-83e2-43fb-aa2b-3fa9ecbe7c09" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">\AppData</Content>
+          </IndicatorItem>
+          <IndicatorItem id="a8aacbc5-26d3-4cbd-84cf-d6c2eac495b7" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">\System32</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator id="4f84e627-726c-413e-9f84-c98fef94fe64" operator="AND">
+        <Indicator id="3d5c02ad-89cb-4657-b4ae-9ece7ea55db8" operator="OR">
+          <IndicatorItem id="440b0252-4aa5-4391-9a2d-705c60f630ba" condition="is">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">WindoWs\system</Content>
+          </IndicatorItem>
+          <IndicatorItem id="869f7244-8093-4bb5-80f5-ef4103ae93f1" condition="is">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">WindoWs\temp</Content>
+          </IndicatorItem>
+          <IndicatorItem id="2f9cd78e-bcc1-4f40-88fe-c87b30e949dc" condition="contains">
+            <Context document="FileItem" search="FileItem/FilePath" type="mir"/>
+            <Content type="string">\local settings\temp</Content>
+          </IndicatorItem>
+        </Indicator>
+        <Indicator id="b99bf118-3131-4951-8028-d637eb0780a3" operator="OR">
+          <IndicatorItem id="7fe857e2-5dc4-4028-84a3-31a82dabdda2" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">perf2012.ini</Content>
+          </IndicatorItem>
+          <IndicatorItem id="27fdb44b-d1f7-4ac4-918f-cccdf3c96e47" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">config_t.dat</Content>
+          </IndicatorItem>
+          <IndicatorItem id="3fd4c535-b389-4ee5-b680-ab6444cadaa0" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">config_shenghai.dat</Content>
+          </IndicatorItem>
+          <IndicatorItem id="ae3f5d3c-41f3-419c-b897-6f3b70cc96f4" condition="is">
+            <Context document="FileItem" search="FileItem/FileName" type="mir"/>
+            <Content type="string">pert2012.ini</Content>
+          </IndicatorItem>
+        </Indicator>
+      </Indicator>
+      <Indicator id="1b3b85ef-9f3b-495b-b506-6485e7a0b555" operator="AND">
+        <IndicatorItem id="2a5e0349-50e4-495a-aadf-cf29e4036291" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir"/>
+          <Content type="string">ServiceMain</Content>
+        </IndicatorItem>
+        <IndicatorItem id="245327aa-05e8-47b2-99ba-56596f012619" condition="is">
+          <Context document="FileItem" search="FileItem/PEInfo/Exports/ExportedFunctions/string" type="mir"/>
+          <Content type="string">JustTempFun</Content>
+        </IndicatorItem>
+      </Indicator>
+    </Indicator>
+  </definition>
+</ioc>

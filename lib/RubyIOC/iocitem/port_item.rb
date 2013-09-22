@@ -141,7 +141,7 @@ module RubyIOC
 			end
 
 			def create
-				PortItem.new
+				PortItem.instance
 			end
 		end
 

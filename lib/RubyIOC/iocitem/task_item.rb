@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				TaskItem.new
+				TaskItem.instance
 			end
 		end
 

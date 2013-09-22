@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				HashItem.new
+				HashItem.instance
 			end
 		end
 

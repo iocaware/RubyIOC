@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				DiskItem.new
+				DiskItem.instance
 			end
 		end
 

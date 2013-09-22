@@ -72,7 +72,7 @@ module RubyIOC
 			end
 
 			def create
-				UserItem.new
+				UserItem.instance
 			end
 		end
 

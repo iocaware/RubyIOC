@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				FileDownloadHistoryItem.new
+				FileDownloadHistoryItem.instance
 			end
 		end
 

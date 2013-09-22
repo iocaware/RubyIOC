@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				FormHistoryItem.new
+				FormHistoryItem.instance
 			end
 		end
 

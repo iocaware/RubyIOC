@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				HookItem.new
+				HookItem.instance
 			end
 		end
 

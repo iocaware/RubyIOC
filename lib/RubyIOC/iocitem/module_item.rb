@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				ModuleItem.new
+				ModuleItem.instance
 			end
 		end
 

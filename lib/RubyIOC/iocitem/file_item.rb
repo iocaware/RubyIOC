@@ -16,7 +16,70 @@ module RubyIOC
 			def get_type
 				"FileItem"
 			end
+
+			def scan(indicator)
+				if RubyIOC::Platform.windows?
+					return scan_windows_files(indicator)
+				else
+					puts "Not implemented on this platform yet"
+				end
+			end
+
+
+			def scan_windows_files(indicator)
+				indicator.each { |i|
+					case i[:search]
+					when 'FileItem/DevicePath'
+					when 'FileItem/FullPath'
+					when 'FileItem/Drive'
+					when 'FileItem/FilePath'
+					when 'FileItem/FileName'
+						return search_windows(i[:content])
+					when 'FileItem/FileExtension'
+					when 'FileItem/SizeInBytes'
+					when 'FileItem/Created'
+					when 'FileItem/Modified'
+					when 'FileItem/Changed'
+					when 'FileItem/FilenameCreated'
+					when 'FileItem/FilenameAccessed'
+					when 'FileItem/FilenameChanged'
+					when 'FileItem/FileAttributes'
+					when 'FileItem/Username'
+					when 'FileItem/SecurityID'
+					when 'FileItem/SecurityType'
+					when 'FileItem/INode'
+					when 'FileItem/StreamList/Stream'
+					when 'FileItem/PEInfo'
+					when 'FileItem/PEInfo/DigitalSignature/SignatureExists'
+					when 'FileItem/PeakEntropy'
+					when 'FileItem/PeakCodeEntropy'
+					when 'FileItem/StringList/string'
+					when 'FileItem/Sha512sum'
+					when 'FileItem/Md5sum'
+					when 'FileItem/Sha1sum'
+					when 'FileItem/Sha256sum'
+					when 'FileItem/Md54ksum'
+					end
+				}
+				return false
+			end
+
+			def search_windows(str)
+				Dir.chdir "\\"
+				results = false
+				sr = `dir /s #{str}`
+				if sr.include?("File Not Found")
+					results = false
+				else
+					results = true
+				end				
+				return results
+			end
+
+
 		end
+
+		
 
 		class FileItemFactory < RubyIOC::IOCItem::IOCItemFactory
 			def get_type
@@ -24,7 +87,7 @@ module RubyIOC
 			end
 
 			def create
-				FileItem.new
+				FileItem.instance
 			end
 		end
 

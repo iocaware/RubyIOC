@@ -89,7 +89,7 @@ module RubyIOC
 			end
 
 			def create
-				VolumeItem.new
+				VolumeItem.instance
 			end
 		end
 

@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				SystemRestoreItem.new
+				SystemRestoreItem.instance
 			end
 		end
 

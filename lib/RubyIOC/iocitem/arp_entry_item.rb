@@ -107,7 +107,7 @@ module RubyIOC
 			end
 
 			def create
-				ArpEntryItem.new
+				ArpEntryItem.instance
 			end
 		end
 

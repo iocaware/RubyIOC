@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				DriverItem.new
+				DriverItem.instance
 			end
 		end
 

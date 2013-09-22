@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				ProcessItem.new
+				ProcessItem.instance
 			end
 		end
 

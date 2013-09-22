@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				SystemInfoItem.new
+				SystemInfoItem.instance
 			end
 		end
 

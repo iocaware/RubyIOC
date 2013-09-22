@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				TimelineItem.new
+				TimelineItem.instance
 			end
 		end
 

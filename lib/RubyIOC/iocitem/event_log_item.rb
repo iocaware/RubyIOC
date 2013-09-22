@@ -73,7 +73,7 @@ module RubyIOC
 			end
 
 			def create
-				EventLogItem.new
+				EventLogItem.instance
 			end
 		end
 

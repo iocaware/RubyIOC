@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				StringMatchItem.new
+				StringMatchItem.instance
 			end
 		end
 

@@ -93,7 +93,7 @@ module RubyIOC
 			end
 
 			def create
-				DnsEntryItem.new
+				DnsEntryItem.instance
 			end
 		end
 

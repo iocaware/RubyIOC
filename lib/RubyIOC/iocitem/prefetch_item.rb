@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				PrefetchItem.new
+				PrefetchItem.instance
 			end
 		end
 

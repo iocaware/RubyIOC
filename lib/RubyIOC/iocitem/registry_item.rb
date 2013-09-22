@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				RegistryItem.new
+				RegistryItem.instance
 			end
 		end
 

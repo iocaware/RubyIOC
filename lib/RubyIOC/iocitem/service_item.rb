@@ -124,7 +124,7 @@ module RubyIOC
 			end
 
 			def create
-				ServiceItem.new
+				ServiceItem.instance
 			end
 		end
 

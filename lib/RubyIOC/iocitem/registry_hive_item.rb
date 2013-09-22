@@ -24,7 +24,7 @@ module RubyIOC
 			end
 
 			def create
-				RegistryHiveItem.new
+				RegistryHiveItem.instance
 			end
 		end
 
