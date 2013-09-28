@@ -39,7 +39,7 @@ module RubyIOC
 				tmp[:search] = inditem.search
 				tmp[:condition] = inditem.condition
 				tmp[:content_type] = inditem.content_type
-				tmp[:content] = inditem.content
+				tmp[:content] = Shellwords.escape(inditem.content)
 				tmp[:context_type] = inditem.context_type
 				#res[i.id]['indicators'] 
 				rs = RubyIOC::IOCItem::IOCItemFactory.item_for(inditem.document).scan([tmp])

@@ -20,7 +20,7 @@ module RubyIOC
 			def scan(indicator)
 				if RubyIOC::Platform.windows?
 					return search_windows_arp(indicator)
-				elseif Ruby::Platform::mac?
+				elsif Ruby::Platform::mac?
 					return search_mac_arp(indicator)
 				else
 					puts "Not implemented on this platform yet"
